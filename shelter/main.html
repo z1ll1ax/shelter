@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+- в хедере шрифты в фигме ???
+- хедер доделать ховер и актив
+- градиент отличается капельку
+- обводка в подзаголовке лого
+-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1280px, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Shelter</title>
 </head>
 <body>
   <header class="header">
-    <div>
-      <p>Cozy House</p>
-      <p>Shelter for pets in Boston</p>
+    <div class="header-title">
+      <p class="header-main-title">Cozy House</p>
+      <p class="header-subtitle">Shelter for pets in Boston</p>
     </div>
-    <div>
-      <a>About the shelter</a>
-      <a>Our pets</a>
-      <a>Help the shelter</a>
-      <a>Contacts</a>
-    </div>
+    <nav class="header-links">
+      <a class="header-link">About the shelter</a>
+      <a class="header-link">Our pets</a>
+      <a class="header-link">Help the shelter</a>
+      <a class="header-link">Contacts</a>
+    </nav>
   </header>
   <main>
-    <section class="start-screen">
-      <div class="start-screen-content">
-        <div class="content">
-          <h2>Not only people need a house</h2>
-          <p>We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
-          <button>Make a friend</button>
+    <section class="not-only">
+      <div class="not-only-content">
+        <div class="not-only-inner-content">
+          <h2 class='not-only-title'>Not only people need a house</h2>
+          <p class='not-only-subtitle p-l'>We offer to give a chance to a little and nice puppy with 
+            an extremely wide and open heart. He or she will love you more 
+            than anybody else in the world, you will see!</p>
+          <button class='not-only-button'>Make a friend</button>
         </div>
-        <img src="imgs/start-screen-puppy.png" alt="puppy">
+        <img class='not-only-puppy' src="imgs/start-screen-puppy.png" alt="puppy">
       </div>
-      <img src="imgs/start-screen-gradient-background.jpg">
-      <img src="imgs/start-screen-background.jpg">
     </section>
     <section class="about">
       <div class="about-content">
         <img class="about-pets" src="imgs/about-pets.png">
-        <div class="content">
-          <h3>About the shelter “Cozy House”</h3>
-          <p>Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of them will find a family. The others will continue to live with us and will be waiting for a lucky chance to become dearly loved.</p>
-          <p>We feed our wards with the best food and make sure that they do not get sick, feel comfortable (including psychologically) and well. We are supported by 87 volunteers and 28 employees of various skill levels. About 12% of the animals are taken by the shelter staff. Taking care of the animals, they become attached to the pets and would hardly ever leave them alone.</p>
+        <div class="about-inner-content">
+          <h3 class="about-heading">About the shelter “Cozy House”</h3>
+          <p class="about-subheading p-l">Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of them will find a family. The others will continue to live with us and will be waiting for a lucky chance to become dearly loved.</p>
+          <p class="about-subheading p-l">We feed our wards with the best food and make sure that they do not get sick, feel comfortable (including psychologically) and well. We are supported by 87 volunteers and 28 employees of various skill levels. About 12% of the animals are taken by the shelter staff. Taking care of the animals, they become attached to the pets and would hardly ever leave them alone.</p>
         </div>
       </div>
     </section>
     <section class="pets">
       <div class="pets-content">
-        <h3>Our friends who are looking for a house</h3>
-        <div class="slider">
-          <button><img></button>
-          <div class="card">
+        <h3 class="pets-header">Our friends who<br/>are looking for a house</h3>
+        <div class="pets-slider">
+          <button class="pets-slider-left">
             <img>
-            <p></p>
+          </button>
+          <div class="card">
+            <img src="imgs/pets-katrine.png" alt="katrine">
+            <p>Katrine</p>
             <button></button>
           </div>
           <div class="card">
-            <img>
-            <p></p>
+            <img src="imgs/pets-jennifer.png" alt="jennifer">
+            <p>Jennifer</p>
             <button></button>
           </div>
           <div class="card">
-            <img>
-            <p></p>
+            <img src="imgs/pets-woody.png" alt="woody">
+            <p>Woody</p>
             <button></button>
           </div>
-          <button><img></button>
+          <button class="pets-slider-left">
+            <img>
+          </button>
         </div>
         <button>Get to know the rest</button>
       </div>
