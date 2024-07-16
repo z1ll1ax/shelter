@@ -2,9 +2,11 @@
 <html lang="en">
 <!--
 - в хедере шрифты в фигме ???
-- хедер доделать ховер и актив
-- градиент отличается капельку
+- доделать ховер и актив
+- градиент отличается
+- картинка шума должна быть в масштабе 1.1
 - обводка в подзаголовке лого
+- стрелки внутри кнопок в петс
 -->
 <head>
   <meta charset="UTF-8">
@@ -52,29 +54,29 @@
       <div class="pets-content">
         <h3 class="pets-header">Our friends who<br/>are looking for a house</h3>
         <div class="pets-slider">
-          <button class="pets-slider-left">
-            <img>
+          <button class="pets-slider-left-button">
+            <img class="pets-slider-left" src="imgs/Arrow-l.svg" alt="">
           </button>
           <div class="card">
-            <img src="imgs/pets-katrine.png" alt="katrine">
-            <p>Katrine</p>
-            <button></button>
+            <img class="card-image" src="imgs/pets-katrine.png" alt="katrine">
+            <p class="card-text">Katrine</p>
+            <button class="card-button">Learn more</button>
           </div>
           <div class="card">
             <img src="imgs/pets-jennifer.png" alt="jennifer">
-            <p>Jennifer</p>
-            <button></button>
+            <p class="card-text">Jennifer</p>
+            <button class="card-button">Learn more</button>
           </div>
           <div class="card">
             <img src="imgs/pets-woody.png" alt="woody">
-            <p>Woody</p>
-            <button></button>
+            <p class="card-text">Woody</p>
+            <button class="card-button">Learn more</button>
           </div>
-          <button class="pets-slider-left">
-            <img>
+          <button class="pets-slider-right-button">
+            <img class="pets-slider-right" src="imgs/Arrow-r.svg" alt="">
           </button>
         </div>
-        <button>Get to know the rest</button>
+        <button class="pets-main-button">Get to know the rest</button>
       </div>
     </section>
     <section class="help">
