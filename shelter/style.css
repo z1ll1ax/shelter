@@ -17,7 +17,7 @@ body {
 }
 h2{
   margin: 0;
-  font-weight: 100;
+  font-weight: normal;
   font-family: Georgia;
   font-size: 44px;
   color: #FFFFFF;
@@ -41,6 +41,11 @@ h4{
 }
 h5{
   margin: 0;
+  font-weight: 100;
+  font-size: 15px;
+  font-family: Georgia;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
 }
 .p-l{
   margin: 0;
@@ -273,12 +278,14 @@ p{
 }
 .help-heading{
   text-align: center;
-  width: 308px;
+  color: var(--color-dark-l);
+  width: 310px;
   margin: 0 auto;
   margin-bottom: 60px;
 }
 .list{
   display: flex;
+  margin: 0 auto;
   justify-content: center;
   flex-wrap: wrap;
   row-gap: 55px;
@@ -299,3 +306,55 @@ p{
   color: var(--color-dark-l);
   text-align: center;
 }
+
+.donation{
+  background-color: var(--color-light-l);
+  padding: 80px 182px 100px 183px;
+}
+.donation-content{
+  display: flex;
+  
+}
+.donation-img{
+  margin-right: 30px;
+}
+.donation-inner-content{
+  width: 380px;
+}
+.donation-heading{
+  margin-bottom: 20px;
+  color: var(--color-dark-l);
+}
+.donation-subheading{
+  margin-bottom: 20px;
+  color: var(--color-dark-l);
+}
+.credit-card-container{
+  display: flex;
+  margin-bottom: 20px;
+  background-color: var(--color-primary);
+  border-radius: 9px;
+  border: none;
+  width: 349px;
+  height: 43px;
+  align-items: center;
+}
+.icon-credit-card{
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 30px;
+  height: 23px;
+}
+.credit-card-number{
+  color: var(--color-dark-l);
+}
+.donation-info{
+  color: var(--color-dark-m);
+  font-size: 12px;
+  font-family: Arial;
+  font-style: italic;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+footer{}
