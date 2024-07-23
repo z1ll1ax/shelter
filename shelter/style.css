@@ -1,57 +1,71 @@
 :root{
-  --color-light-xl: #FFFFFF;
-  --color-light-l: #F6F6F6;
-  --color-light-s: #FAFAFA;
-  --color-dark-s: #CDCDCD;
-  --color-dark-m: #B2B2B2;
-  --color-dark-l: #545454;
-  --color-dark-xl: #4C4C4C;
-  --color-dark-2xl: #444444;
-  --color-dark-3xl: #292929;
-  --color-primary: #F1CDB3;
-  --color-primary-light: #FDDCC4;
+  --color-light-xl: #fff;
+	--color-light-l: #f6f6f6;
+	--color-light-s: #fafafa;
+	--color-dark-s: #cdcdcd;
+	--color-dark-m: #b2b2b2;
+	--color-dark-l: #545454;
+	--color-dark-xl: #4c4c4c;
+	--color-dark-2xl: #444;
+	--color-dark-3xl: #292929;
+	--color-primary: #f1cdb3;
+	--color-primary-light: #fddcc4;
+	--start-screen-gradient-background: #211f20;
+	--footer-gradient-background: #211f20;
+
+  --font-family: "Georgia", sans-serif;
+  --second-family: "Arial", sans-serif;
+  --third-family: "Inter", sans-serif;
 }
 body {
   width: 1280px;
   margin: 0 auto;
 }
-h2{
+h1 {
   margin: 0;
-  font-weight: normal;
-  font-family: Georgia;
+  font-weight: 400;
+  font-family: var(--font-family);
   font-size: 44px;
   color: #FFFFFF;
-  line-height: 1.3;
+  line-height: 130%;
+}
+h2{
+  margin: 0;
+  font-weight: 400;
+  font-family: var(--font-family);
+  font-size: 44px;
+  color: #FFFFFF;
+  line-height: 130%;
 }
 h3{
   margin: 0;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 35px;
-  font-family: Georgia;
+  font-family: var(--font-family);
   letter-spacing: 0.06em;
-  line-height: 1.3;
+  line-height: 130%;
 }
 h4{
   margin: 0;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 20px;
-  font-family: Georgia;
+  font-family: var(--font-family);
   letter-spacing: 0.06em;
-  line-height: 1.15;
+  line-height: 115%;
 }
 h5{
   margin: 0;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 15px;
-  font-family: Georgia;
+  font-family: var(--font-family);
   letter-spacing: 0.06em;
-  line-height: 1.1;
+  line-height: 110%;
 }
 .p-l{
   margin: 0;
-  line-height: 1.6;
+  line-height: 160%;
   font-size: 15px;
-  font-family: Arial;
+  font-family: var(--second-family);
 }
 .p-s{
   margin: 0;
@@ -74,14 +88,15 @@ p{
   align-items: center;
 }
 .header-main-title{
-  color: #F1CDB3;
-  font-family: Georgia;
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  font-weight: 400;
   font-size: 32px;
   line-height: 1.1;
   letter-spacing: 0.06em;
 }
 .header-subtitle{
-  font-family: Arial;
+  font-family: var(--second-family);
   font-size: 13px;
   letter-spacing: 0.1em;
   margin-top: 10px;
@@ -98,7 +113,7 @@ p{
   color: #CDCDCD;
   line-height: 1.6;
   font-size: 15px;
-  font-family: Arial;
+  font-family: var(--second-family);
 }
 
 .not-only{
@@ -225,20 +240,24 @@ p{
 .card{
   background-color: var(--color-light-s);
   border-radius: 9px;
+  height: 435px;
   margin-left: 45px;
   margin-right: 45px;
 }
 .card-image{
-  
+  border-radius: 9px 9px 0 0;
+  width: 270px;
+  height: 270px;
 }
 .card-text{
+  letter-spacing: 0.06em;
+  font-weight: 400;
   font-size: 20px;
-  font-family: Georgia;
+  font-family: var(--font-family);
   text-align: center;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-bottom: 30px;
   color: var(--color-dark-l);
-  letter-spacing: 0.06em;
 }
 .card-button{
   border-radius: 100px;
@@ -247,14 +266,15 @@ p{
   display: block;
   margin: 0 auto 30px auto;
   background-color: var(--color-light-xl);
-  border: var(--color-primary) solid 2px;
+  border: 2px solid var(--color-primary);
 
   color: var(--color-dark-3xl);
   font-size: 17px;
-  font-family: Georgia;
+  font-weight: 400;
+  font-family: var(--font-family);
   text-align: center;
   letter-spacing: 0.06em;
-  line-height: 1.3;
+  line-height: 130%;
 }
 .pets-main-button{
   border-radius: 100px;
@@ -314,7 +334,7 @@ p{
 }
 .donation-content{
   display: flex;
-  
+  height: 282px;
 }
 .donation-img{
   height: 261px;
@@ -355,8 +375,9 @@ p{
 .donation-info{
   color: var(--color-dark-m);
   font-size: 12px;
-  line-height: 18px;
-  font-family: Arial;
+  line-height: 150%;
+  font-weight: 400;
+  font-family: var(--second-family);
   font-style: italic;
   margin-top: 18px;
   margin-bottom: 18px;
@@ -377,22 +398,35 @@ footer{
 }
 .footer-contacts{
   width: 280px;
+  gap: 40px;
 } 
 .footer-location{
   width: 302px;
+  gap: 40px;
 }
 .footer-heading{
+  margin-top: 15px;
+  margin-bottom: 40px;
   color: var(--color-light-xl);
 }
 .footer-inner-container{
-  display: flex;
   margin-top: 40px;
-  margin-bottom: 40px;
+  display: flex;
 }
 .footer-icon{
   margin-right: 20px;
+  height: 32px;
+}
+.footer-loc-icon{
+  margin-top: -8px;
+  margin-right: 20px;
+  height: 32px;
 }
 .footer-info{
+  color: var(--color-primary);
+}
+.footer-location-info{
+  margin-top: -5px;
   color: var(--color-primary);
 }
 .footer-puppy{}
