@@ -73,7 +73,15 @@ h5{
 p{
   margin: 0;
 }
-
+button{
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+button:hover{
+  cursor: pointer;
+  background-color: var(--color-primary-light);
+  border: none;
+}
 .header{
   width: 1200px;
   margin-left: 40px;
@@ -117,12 +125,9 @@ p{
 }
 
 .not-only{
- background-image: 
-      url('imgs/noise_transparent@2x.png'),
-      radial-gradient(circle at top left, #5B483A, #262425), 
-      url(imgs/not-only-background.jpg);
-  background-size: auto, auto, cover;
-  background-repeat: repeat, no-repeat, no-repeat;
+ background: 
+      url(imgs/start-screen-background.jpg);
+  background-size: 100%;
   padding-top: 180px;
   height: 728px;
 }
@@ -214,7 +219,6 @@ p{
 .pets-slider{
   margin-top: 60px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 .pets-slider-left, .pets-slider-right{
@@ -237,12 +241,26 @@ p{
   background-color: var(--color-light-xl);
   border: var(--color-primary) solid 2px;
 }
+.pets-card-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .card{
   background-color: var(--color-light-s);
   border-radius: 9px;
   height: 435px;
   margin-left: 45px;
   margin-right: 45px;
+}
+.card:hover{
+  box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+.card:hover .card-button{
+  background-color: var(--color-primary-light);
+  transition: background-color 0.2s;
 }
 .card-image{
   border-radius: 9px 9px 0 0;

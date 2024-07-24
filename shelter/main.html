@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--
-- в хедере шрифты в фигме ???
-- доделать ховер и актив
+- хедер доделать
+- интерактивность хедера
 - градиент отличается
 - картинка шума должна быть в масштабе 1.1
 - обводка в подзаголовке лого
 - стрелки внутри кнопок в петс
-- в хелп возможно есть незаметное отличие от орига
-- что-от не так с текстом - толи он не такой длины толи толще, везде микро отличия
-- карточки с животными отличаются от орига
-- в pets карточки в отдельный контейнер
 -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1280px, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="imgs/footer-puppy.png">
   <title>Shelter</title>
 </head>
 <body>
@@ -46,7 +43,7 @@
     </section>
     <section class="about">
       <div class="about-content">
-        <img class="about-pets" src="imgs/about-pets.png">
+        <img class="about-pets" src="imgs/about-pets.png" alt="about-pets">
         <div class="about-inner-content">
           <h3 class="about-heading">About the shelter “Cozy House”</h3>
           <p class="about-subheading p-l">Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of them will find a family. The others will continue to live with us and will be waiting for a lucky chance to become dearly loved.</p>
@@ -56,25 +53,27 @@
     </section>
     <section class="pets">
       <div class="pets-content">
-        <h3 class="pets-header">Our friends who<br/>are looking for a house</h3>
+        <h3 class="pets-header">Our friends who <br/>are looking for a house</h3>
         <div class="pets-slider">
           <button class="pets-slider-left-button">
             <img class="pets-slider-left" src="imgs/Arrow-l.svg" alt="">
           </button>
-          <div class="card">
-            <img class="card-image" src="imgs/pets-katrine.png" alt="katrine">
-            <p class="card-text">Katrine</p>
-            <button class="card-button">Learn more</button>
-          </div>
-          <div class="card">
-            <img class="card-image" src="imgs/pets-jennifer.png" alt="jennifer">
-            <p class="card-text">Jennifer</p>
-            <button class="card-button">Learn more</button>
-          </div>
-          <div class="card">
-            <img class="card-image" src="imgs/pets-woody.png" alt="woody">
-            <p class="card-text">Woody</p>
-            <button class="card-button">Learn more</button>
+          <div class="pets-card-container">
+            <div class="card">
+              <img class="card-image" src="imgs/pets-katrine.png" alt="katrine">
+              <p class="card-text">Katrine</p>
+              <button class="card-button">Learn more</button>
+            </div>
+            <div class="card">
+              <img class="card-image" src="imgs/pets-jennifer.png" alt="jennifer">
+              <p class="card-text">Jennifer</p>
+              <button class="card-button">Learn more</button>
+            </div>
+            <div class="card">
+              <img class="card-image" src="imgs/pets-woody.png" alt="woody">
+              <p class="card-text">Woody</p>
+              <button class="card-button">Learn more</button>
+            </div>
           </div>
           <button class="pets-slider-right-button">
             <img class="pets-slider-right" src="imgs/Arrow-r.svg" alt="">
