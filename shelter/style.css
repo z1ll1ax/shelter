@@ -10,12 +10,19 @@
 	--color-dark-3xl: #292929;
 	--color-primary: #f1cdb3;
 	--color-primary-light: #fddcc4;
-	--start-screen-gradient-background: #211f20;
+	--start-screen-gradient-background: #211f20; 
 	--footer-gradient-background: #211f20;
+}
 
-  --font-family: "Georgia", sans-serif;
-  --second-family: "Arial", sans-serif;
-  --third-family: "Inter", sans-serif;
+@font-face {
+  font-family: 'Georgia', sans-serif;
+  src: url('fonts/georgia/georgia-regular.ttf');
+
+  font-family: 'Arial', sans-serif;
+  src: url('fonts/arial/arial-regular.ttf');
+}
+html{
+  scroll-behavior: smooth;
 }
 body {
   width: 1280px;
@@ -24,7 +31,7 @@ body {
 h1 {
   margin: 0;
   font-weight: 400;
-  font-family: var(--font-family);
+  font-family: 'Georgia';
   font-size: 44px;
   color: #FFFFFF;
   line-height: 130%;
@@ -32,7 +39,7 @@ h1 {
 h2{
   margin: 0;
   font-weight: 400;
-  font-family: var(--font-family);
+  font-family: 'Georgia';
   font-size: 44px;
   color: #FFFFFF;
   line-height: 130%;
@@ -41,7 +48,7 @@ h3{
   margin: 0;
   font-weight: 400;
   font-size: 35px;
-  font-family: var(--font-family);
+  font-family: 'Georgia';
   letter-spacing: 0.06em;
   line-height: 130%;
 }
@@ -49,7 +56,7 @@ h4{
   margin: 0;
   font-weight: 400;
   font-size: 20px;
-  font-family: var(--font-family);
+  font-family: 'Georgia';
   letter-spacing: 0.06em;
   line-height: 115%;
 }
@@ -57,7 +64,7 @@ h5{
   margin: 0;
   font-weight: 400;
   font-size: 15px;
-  font-family: var(--font-family);
+  font-family: 'Georgia';
   letter-spacing: 0.06em;
   line-height: 110%;
 }
@@ -65,13 +72,16 @@ h5{
   margin: 0;
   line-height: 160%;
   font-size: 15px;
-  font-family: var(--second-family);
+  font-family: 'Arial';
 }
 .p-s{
   margin: 0;
 }
 p{
   margin: 0;
+}
+a {
+  cursor: pointer;
 }
 button{
   cursor: pointer;
@@ -87,7 +97,7 @@ button:hover{
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 30px;
-  position: fixed;
+  position: absolute;
   display: flex;
   justify-content: space-between;
 }
@@ -97,20 +107,22 @@ button:hover{
 }
 .header-main-title{
   color: var(--color-primary);
-  font-family: var(--font-family);
+  font-family: 'Georgia';
   font-weight: 400;
   font-size: 32px;
   line-height: 1.1;
   letter-spacing: 0.06em;
 }
 .header-subtitle{
-  font-family: var(--second-family);
+  font-family: 'Arial';
+  color: var(--color-light-xl);
   font-size: 13px;
+  font-weight: 400;
   letter-spacing: 0.1em;
   margin-top: 10px;
   margin-left: 4px;
   margin-right: 1px;
-  color: var(--color-light-xl);
+  -webkit-text-stroke: 0.7px #000;
 }
 .header-links{
   display: flex;
@@ -118,16 +130,39 @@ button:hover{
   align-items: center;
 }
 .header-link{
-  color: #CDCDCD;
-  line-height: 1.6;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-dark-s);
+  line-height: 160%;
   font-size: 15px;
-  font-family: var(--second-family);
+  font-weight: 400;
+  font-family: 'Arial';
+  transition: color 0.2s;
+}
+.header-link:hover{
+  color: var(--color-light-s);
+}
+#active-link{
+  cursor: default;
+  color: var(--color-light-s);
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 7px;
 }
 
 .not-only{
- background: 
+  /*
+  var(--start-screen-gradient-background), 
+      radial-gradient(100% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%), 
       url(imgs/start-screen-background.jpg);
-  background-size: 100%;
+  */
+  background: 
+        url(imgs/noise_transparent@2x.svg),
+        radial-gradient(100% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%),
+        rgba(33, 31, 32, 0.5);
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-size: 10%, 100em, 100em;
   padding-top: 180px;
   height: 728px;
 }
@@ -224,13 +259,14 @@ button:hover{
 .pets-slider-left, .pets-slider-right{
   height: 6px;
   width: 14px;
+  padding-bottom: 2px;
 }
 .pets-slider-left-button{
   border-radius: 100px;
   height: 52px;
   width: 52px;
   margin-right: 8px;
-  background-color: var(--color-light-xl);
+  background-color: var(--color-light-l);
   border: var(--color-primary) solid 2px;
 } 
 .pets-slider-right-button{
@@ -238,7 +274,7 @@ button:hover{
   height: 52px;
   width: 52px;
   margin-left: 8px;
-  background-color: var(--color-light-xl);
+  background-color: var(--color-light-l);
   border: var(--color-primary) solid 2px;
 }
 .pets-card-container{
@@ -271,7 +307,7 @@ button:hover{
   letter-spacing: 0.06em;
   font-weight: 400;
   font-size: 20px;
-  font-family: var(--font-family);
+  font-family: 'Georgia';
   text-align: center;
   margin-top: 25px;
   margin-bottom: 30px;
@@ -289,7 +325,7 @@ button:hover{
   color: var(--color-dark-3xl);
   font-size: 17px;
   font-weight: 400;
-  font-family: var(--font-family);
+  font-family: 'Georgia';
   text-align: center;
   letter-spacing: 0.06em;
   line-height: 130%;
@@ -389,23 +425,31 @@ button:hover{
 }
 .credit-card-number{
   color: var(--color-dark-l);
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+  font-family: 'Georgia';
+  letter-spacing: 0.06em;
+  line-height: 115%;
 }
 .donation-info{
   color: var(--color-dark-m);
   font-size: 12px;
   line-height: 150%;
   font-weight: 400;
-  font-family: var(--second-family);
+  font-family: 'Arial';
   font-style: italic;
   margin-top: 18px;
   margin-bottom: 18px;
 }
 
 footer{
-  background-image: 
-      url('imgs/noise_transparent@2x.png'),
-      radial-gradient(circle at top left, #5B483A, #262425), 
-      url(imgs/not-only-background.jpg);
+  background: 
+        url(imgs/noise_transparent@2x.svg),
+        radial-gradient(100% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%),
+        url(imgs/footer-background.svg);
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-size: 10%, auto, 100em;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 40px;
@@ -442,6 +486,7 @@ footer{
 }
 .footer-info{
   color: var(--color-primary);
+  margin-top: 5px;
 }
 .footer-location-info{
   margin-top: -5px;

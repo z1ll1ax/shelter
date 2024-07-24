@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--
-- хедер доделать
-- интерактивность хедера
 - градиент отличается
-- картинка шума должна быть в масштабе 1.1
-- обводка в подзаголовке лого
-- стрелки внутри кнопок в петс
+- картинка шума не в том масштабе (1.1?)
+- фон должен продлятся по всей странице
+- 6ой пункт в перечне ссылочных связей (куча ссылок в футер)
+- ссылка на our pets и кнопка get to know the rest
+- перепроверить потом все пункты перечня ссылочных связей
 -->
 <head>
   <meta charset="UTF-8">
@@ -18,14 +18,14 @@
 <body>
   <header class="header">
     <div class="header-title">
-      <p class="header-main-title">Cozy House</p>
+      <a class="header-main-title">Cozy House</a>
       <p class="header-subtitle">Shelter for pets in Boston</p>
     </div>
     <nav class="header-links">
-      <a class="header-link">About the shelter</a>
+      <a class="header-link" id="active-link">About the shelter</a>
       <a class="header-link">Our pets</a>
-      <a class="header-link">Help the shelter</a>
-      <a class="header-link">Contacts</a>
+      <a class="header-link" href="#help">Help the shelter</a>
+      <a class="header-link" href="#footer">Contacts</a>
     </nav>
   </header>
   <main>
@@ -36,7 +36,7 @@
           <p class='not-only-subtitle p-l'>We offer to give a chance to a little and nice puppy with 
             an extremely wide and open heart. He or she will love you more 
             than anybody else in the world, you will see!</p>
-          <button class='not-only-button'>Make a friend</button>
+          <button class='not-only-button' onclick="window.location.href='#pets'">Make a friend</button>
         </div>
         <img class='not-only-puppy' src="imgs/start-screen-puppy.png" alt="puppy">
       </div>
@@ -51,7 +51,7 @@
         </div>
       </div>
     </section>
-    <section class="pets">
+    <section class="pets" id="pets">
       <div class="pets-content">
         <h3 class="pets-header">Our friends who <br/>are looking for a house</h3>
         <div class="pets-slider">
@@ -82,7 +82,7 @@
         <button class="pets-main-button">Get to know the rest</button>
       </div>
     </section>
-    <section class="help">
+    <section class="help" id="help">
       <div class="help-content">
         <h3 class="help-heading">How you can help our shelter</h3>
         <div class="list">
@@ -133,14 +133,14 @@
           <h5 class="donation-subheading">Name of the bank / Type of bank account</h5>
           <div class="credit-card-container">
             <img class="icon-credit-card" src="imgs/credit-card.svg" alt="icon-credit-card">
-            <h4 class="credit-card-number">8380 2880 8028 8791 7435</h4>
+            <a class="credit-card-number">8380 2880 8028 8791 7435</a>
           </div>
           <p class="donation-info">Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
         </div>
       </div>
     </section>
   </main>
-  <footer class="footer">
+  <footer class="footer" id="footer">
     <div class="footer-container">
       <div class="footer-contacts">
         <h3 class="footer-heading">For questions and suggestions</h3>
