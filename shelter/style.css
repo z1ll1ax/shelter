@@ -25,7 +25,6 @@ html{
   scroll-behavior: smooth;
 }
 body {
-  width: 1280px;
   margin: 0 auto;
 }
 h1 {
@@ -93,13 +92,18 @@ button:hover{
   border: none;
 }
 .header{
-  width: 1200px;
+  width: 100%;
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 30px;
   position: absolute;
+}
+.header-wrap{
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 .header-title{
   text-align: left;
@@ -128,6 +132,7 @@ button:hover{
   display: flex;
   gap: 35px;
   align-items: center;
+  margin-right: 80px;
 }
 .header-link{
   text-decoration: none;
@@ -152,19 +157,20 @@ button:hover{
 }
 
 .not-only{
-  /*
-  var(--start-screen-gradient-background), 
-      radial-gradient(100% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%), 
-      url(imgs/start-screen-background.jpg);
-  */
+  width: 100%;
   background: 
         url(imgs/noise_transparent@2x.svg),
         radial-gradient(100% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%),
         rgba(33, 31, 32, 0.5);
   background-repeat: repeat, no-repeat, no-repeat;
-  background-size: 10%, 100em, 100em;
+  background-size: 6%, cover;
   padding-top: 180px;
   height: 728px;
+}
+.wrap{
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 .not-only-content{
   width: 1200px;
@@ -243,7 +249,8 @@ button:hover{
   padding: 80px 40px 100px 40px;
 }
 .pets-content{
-
+  margin-left: 40px;
+  width: 1200px;
 }
 .pets-header{
   color: var(--color-dark-l);;
@@ -266,6 +273,7 @@ button:hover{
   height: 52px;
   width: 52px;
   margin-right: 8px;
+  margin-top: -60px;
   background-color: var(--color-light-l);
   border: var(--color-primary) solid 2px;
 } 
@@ -274,6 +282,7 @@ button:hover{
   height: 52px;
   width: 52px;
   margin-left: 8px;
+  margin-top: -60px;
   background-color: var(--color-light-l);
   border: var(--color-primary) solid 2px;
 }
@@ -281,6 +290,7 @@ button:hover{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 60px;
 }
 .card{
   background-color: var(--color-light-s);
@@ -335,7 +345,7 @@ button:hover{
   height: 52px;
   width: 261px;
   display: block;
-  margin: 60px auto 0 auto;
+  margin: 0 auto;
   background-color: var(--color-primary);
   border: none;
 
@@ -386,9 +396,15 @@ button:hover{
   background-color: var(--color-light-l);
   padding: 80px 182px 100px 183px;
 }
+.donation-wrap{
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
 .donation-content{
   display: flex;
   height: 282px;
+  margin-left: 180px;
 }
 .donation-img{
   height: 261px;
@@ -449,7 +465,7 @@ footer{
         radial-gradient(100% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%),
         url(imgs/footer-background.svg);
   background-repeat: repeat, no-repeat, no-repeat;
-  background-size: 10%, auto, 100em;
+  background-size: 6%, auto, 100em;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 40px;
@@ -457,6 +473,7 @@ footer{
 .footer-container{
   display: flex;  
   gap: 160px;
+  margin-left: 40px;
 }
 .footer-contacts{
   width: 280px;
