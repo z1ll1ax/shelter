@@ -107,7 +107,7 @@ button{
   align-items: center;
 }
 .header-main-title{
-  color: var(--color-primary);
+  color: var(--color-dark-l);
   font-family: 'Georgia';
   font-weight: 400;
   font-size: 32px;
@@ -116,7 +116,7 @@ button{
 }
 .header-subtitle{
   font-family: 'Arial';
-  color: var(--color-light-xl);
+  color: var(--color-dark-3xl);
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.1em;
