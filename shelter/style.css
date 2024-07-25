@@ -253,7 +253,7 @@ button:hover{
   width: 1200px;
 }
 .pets-header{
-  color: var(--color-dark-l);;
+  color: var(--color-dark-l);
   margin: 0 400px 0 400px;
   text-align: center;
   width: 400px;

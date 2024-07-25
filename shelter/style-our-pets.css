@@ -25,17 +25,9 @@ html{
   scroll-behavior: smooth;
 }
 body {
-  width: 1280px;
   margin: 0 auto;
 }
-h1 {
-  margin: 0;
-  font-weight: 400;
-  font-family: 'Georgia';
-  font-size: 44px;
-  color: #FFFFFF;
-  line-height: 130%;
-}
+
 h2{
   margin: 0;
   font-weight: 400;
@@ -44,7 +36,7 @@ h2{
   color: #FFFFFF;
   line-height: 130%;
 }
-h3{
+h1, h3 {
   margin: 0;
   font-weight: 400;
   font-size: 35px;
@@ -92,14 +84,24 @@ button:hover{
   background-color: var(--color-primary-light);
   border: none;
 }
+.wrap{
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
 .header{
-  width: 1200px;
+  width: 100%;
+  height: 90px;
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 30px;
-  position: absolute;
+}
+.header-wrap{
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 .header-title{
   text-align: left;
@@ -128,6 +130,7 @@ button:hover{
   display: flex;
   gap: 35px;
   align-items: center;
+  margin-right: 80px;
 }
 .header-link{
   text-decoration: none;
@@ -151,7 +154,82 @@ button:hover{
   text-underline-offset: 7px;
 }
 
+.main{
+  height: 1342px;
+  background-color: var(--color-light-l);
+  padding-top: 80px;
+}
+.main-content{
+  width: 1200px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.main-heading{
+  color: var(--color-dark-l);
+  margin: 0 400px 0 400px;
+  text-align: center;
+  width: 400px;
+  margin-bottom: 45px;
+}
+.main-container{
+  padding-top: 15px;
+}
+.card-container{
+  width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 30px;
+  column-gap: 40px;
+}
 
+.card{
+  background-color: var(--color-light-s);
+  border-radius: 9px;
+  width: 270px;
+  height: 435px;
+}
+.card:hover{
+  box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+.card:hover .card-button{
+  background-color: var(--color-primary-light);
+  transition: background-color 0.2s;
+}
+.card-image{
+  border-radius: 9px 9px 0 0;
+  width: 270px;
+  height: 270px;
+}
+.card-text{
+  letter-spacing: 0.06em;
+  font-weight: 400;
+  font-size: 20px;
+  font-family: 'Georgia';
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  color: var(--color-dark-l);
+}
+.card-button{
+  border-radius: 100px;
+  height: 52px;
+  width: 187px;
+  display: block;
+  margin: 0 auto 30px auto;
+  background-color: var(--color-light-xl);
+  border: 2px solid var(--color-primary);
+
+  color: var(--color-dark-3xl);
+  font-size: 17px;
+  font-weight: 400;
+  font-family: 'Georgia';
+  text-align: center;
+  letter-spacing: 0.06em;
+  line-height: 130%;
+}
+.pagination-container{}
 
 footer{
   background: 
@@ -159,7 +237,7 @@ footer{
         radial-gradient(100% 111.8% at 0% 0%, rgb(91, 72, 58) 0%, rgb(38, 36, 37) 100%),
         url(imgs/footer-background.svg);
   background-repeat: repeat, no-repeat, no-repeat;
-  background-size: 10%, auto, 100em;
+  background-size: 6%, auto, 100em;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 40px;
@@ -167,6 +245,7 @@ footer{
 .footer-container{
   display: flex;  
   gap: 160px;
+  margin-left: 40px;
 }
 .footer-contacts{
   width: 280px;
