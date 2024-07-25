@@ -79,11 +79,10 @@ button{
   cursor: pointer;
   transition: background-color 0.2s;
 }
-button:hover{
-  cursor: pointer;
-  background-color: var(--color-primary-light);
-  border: none;
+.pets-main-button-link, .header-link, .header-main-title-link, .credit-card-number{
+  text-decoration: none;
 }
+
 .wrap{
   width: 100%;
   max-width: 1280px;
@@ -135,7 +134,7 @@ button:hover{
 .header-link{
   text-decoration: none;
   cursor: pointer;
-  color: var(--color-dark-s);
+  color: var(--color-dark-l);
   line-height: 160%;
   font-size: 15px;
   font-weight: 400;
@@ -143,11 +142,11 @@ button:hover{
   transition: color 0.2s;
 }
 .header-link:hover{
-  color: var(--color-light-s);
+  color: var(--color-light-3xl);
 }
 #active-link{
   cursor: default;
-  color: var(--color-light-s);
+  color: var(--color-light-3xl);
   text-decoration: underline;
   text-decoration-color: var(--color-primary);
   text-decoration-thickness: 3px;
@@ -155,7 +154,7 @@ button:hover{
 }
 
 .main{
-  height: 1342px;
+  height: 1262px;
   background-color: var(--color-light-l);
   padding-top: 80px;
 }
@@ -229,7 +228,52 @@ button:hover{
   letter-spacing: 0.06em;
   line-height: 130%;
 }
-.pagination-container{}
+.pagination-container{
+  margin-top: 60px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+.pagination-button{
+  border-radius: 100px;
+  height: 52px;
+  width: 52px;
+  background-color: var(--color-light-l);
+  border: var(--color-primary) solid 2px;
+
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+  font-family: 'Georgia';
+  letter-spacing: 0.06em;
+  line-height: 115%;
+}
+
+#disabled-button, #disabled-button-last{
+  border: var(--color-dark-s) solid 2px;
+  color: var(--color-dark-s);
+  cursor: no-drop;
+}
+#active-button, #active-button-last{
+  border-radius: 100px;
+  height: 52px;
+  width: 52px;
+  background-color: var(--color-light-l);
+  border: var(--color-primary) solid 2px;
+}
+#active-button:hover, #active-button-last:hover{
+  cursor: pointer;
+  background-color: var(--color-primary-light);
+  border: none;
+}
+#main-button{
+  border-radius: 100px;
+  height: 52px;
+  width: 52px;
+  background-color: var(--color-primary);
+  border: none;
+}
 
 footer{
   background: 

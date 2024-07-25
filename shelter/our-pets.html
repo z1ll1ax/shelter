@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--
-- градиент отличается
-- картинка шума не в том масштабе (1.1?)
-- фон должен продлятся по всей странице
-- 6ой пункт в перечне ссылочных связей (куча ссылок в футер)
-- лого другое
-- навигация другая
 - перепроверить потом все пункты перечня ссылочных связей
 -->
 <head>
@@ -20,13 +14,15 @@
   <header class="header">
     <div class="header-wrap">
       <div class="header-title">
-        <a class="header-main-title">Cozy House</a>
-        <p class="header-subtitle">Shelter for pets in Boston</p>
+        <a href="main.html" class="header-main-title-link">
+          <p class="header-main-title" href="#">Cozy House</p>
+          <p class="header-subtitle">Shelter for pets in Boston</p>
+        </a>
       </div>
       <nav class="header-links">
-        <a class="header-link" id="active-link">About the shelter</a>
-        <a class="header-link" href="our-pets.html">Our pets</a>
-        <a class="header-link" href="#help">Help the shelter</a>
+        <a class="header-link" href="main.html">About the shelter</a>
+        <a class="header-link" id="active-link">Our pets</a>
+        <a class="header-link" href="main.html#help">Help the shelter</a>
         <a class="header-link" href="#footer">Contacts</a>
       </nav>
     </div>
@@ -79,7 +75,11 @@
             </div>
           </div>
           <div class="pagination-container">
-
+            <button class="pagination-button" id="disabled-button-last">&lt;&lt;</button>
+            <button class="pagination-button" id="disabled-button">&lt;</button>
+            <button class="pagination-button" id="main-button">1</button>
+            <button class="pagination-button" id="active-button">&gt;</button>
+            <button class="pagination-button" id="active-button-last">&gt;&gt;</button>
           </div>
         </div>
       </div>

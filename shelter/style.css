@@ -356,6 +356,9 @@ button:hover{
   letter-spacing: 0.06em;
   line-height: 1.3;
 }
+.pets-main-button-link, .header-link, .header-main-title-link, .credit-card-number{
+  text-decoration: none;
+}
 
 .help{}
 .help-content{
