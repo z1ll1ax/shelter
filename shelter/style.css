@@ -450,6 +450,10 @@ button:hover{
   font-family: 'Georgia';
   letter-spacing: 0.06em;
   line-height: 115%;
+  transition: color 0.3s;
+}
+.credit-card-number:hover{
+  color: var(--color-dark-3xl);
 }
 .donation-info{
   color: var(--color-dark-m);
@@ -507,9 +511,16 @@ footer{
 .footer-info{
   color: var(--color-primary);
   margin-top: 5px;
+  transition: color 0.2s;
 }
 .footer-location-info{
   margin-top: -5px;
   color: var(--color-primary);
+}
+.email-link, .phone-link,.location-link{
+  text-decoration: none;
+}
+.email-link:hover h4, .phone-link:hover h4, .location-link:hover h4{
+  color: var(--color-primary-light);
 }
 .footer-puppy{}

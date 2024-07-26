@@ -82,6 +82,9 @@ button{
 .pets-main-button-link, .header-link, .header-main-title-link, .credit-card-number{
   text-decoration: none;
 }
+.header-main-title-link:hover .header-main-title{
+  box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.1);
+}
 
 .wrap{
   width: 100%;
@@ -320,9 +323,16 @@ footer{
 .footer-info{
   color: var(--color-primary);
   margin-top: 5px;
+  transition: color 0.2s;
 }
 .footer-location-info{
   margin-top: -5px;
   color: var(--color-primary);
+}
+.email-link, .phone-link,.location-link{
+  text-decoration: none;
+}
+.email-link:hover h4, .phone-link:hover h4, .location-link:hover h4{
+  color: var(--color-primary-light);
 }
 .footer-puppy{}
