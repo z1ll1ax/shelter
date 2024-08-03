@@ -22,6 +22,8 @@
   src: url('fonts/arial/arial-regular.ttf');
 }
 html{
+  overflow-x: hidden;
+  overflow-y: hidden;
   scroll-behavior: smooth;
 }
 body {
@@ -79,6 +81,7 @@ button{
   cursor: pointer;
   transition: background-color 0.2s;
 }
+
 .pets-main-button-link, .header-link, .header-main-title-link, .credit-card-number{
   text-decoration: none;
 }
@@ -94,20 +97,19 @@ button{
 .header{
   width: 100%;
   height: 90px;
-  margin-left: 40px;
-  margin-right: 40px;
   margin-top: 30px;
 }
 .header-wrap{
+  max-width: 1280px;
   width: 100%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  max-width: 1280px;
-  margin: 0 auto;
 }
 .header-title{
   text-align: left;
   align-items: center;
+  margin-left: 40px;
 }
 .header-main-title{
   color: var(--color-dark-l);
@@ -130,9 +132,9 @@ button{
 }
 .header-links{
   display: flex;
-  gap: 35px;
+  margin-right: 40px;
+  gap: 36px;
   align-items: center;
-  margin-right: 80px;
 }
 .header-link{
   text-decoration: none;
@@ -143,6 +145,7 @@ button{
   font-weight: 400;
   font-family: 'Arial';
   transition: color 0.2s;
+  margin-bottom: 5px;
 }
 .header-link:hover{
   color: var(--color-light-3xl);
@@ -336,3 +339,16 @@ footer{
   color: var(--color-primary-light);
 }
 .footer-puppy{}
+
+
+@media (max-width: 1280px){
+  .header-wrap{
+    /* width: calc(100% - 60px); */
+  }
+  .header-title{
+    margin-left: 30px;
+  }
+  .header-links{
+    margin-right: 30px;
+  }
+}

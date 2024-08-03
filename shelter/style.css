@@ -21,8 +21,10 @@
   font-family: 'Arial', sans-serif;
   src: url('fonts/arial/arial-regular.ttf');
 }
+
 html{
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   margin: 0 auto;
@@ -93,8 +95,6 @@ button:hover{
 }
 .header{
   width: 100%;
-  margin-left: 40px;
-  margin-right: 40px;
   margin-top: 30px;
   position: absolute;
 }
@@ -102,7 +102,7 @@ button:hover{
   width: 100%;
   display: flex;
   justify-content: space-between;
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .header-title{
@@ -132,7 +132,6 @@ button:hover{
   display: flex;
   gap: 35px;
   align-items: center;
-  margin-right: 80px;
 }
 .header-link{
   text-decoration: none;
@@ -165,25 +164,23 @@ button:hover{
   background-repeat: repeat, no-repeat, no-repeat;
   background-size: 6%, cover;
   padding-top: 180px;
-  height: 728px;
 }
 .wrap{
   width: 100%;
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .not-only-content{
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   height: 728px;
-  margin-left: 40px;
-  margin-right: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 .not-only-inner-content{
-  width: 460px;
+  max-width: 460px;
   height: 322px;
-  margin-top: 163px;
 }
 .not-only-title{
   width: 310px;
@@ -209,7 +206,8 @@ button:hover{
   margin-top: 42px;
 }
 .not-only-puppy{
-
+  display: block;
+  margin-left: auto;
 }
 
 .about{
@@ -524,3 +522,9 @@ footer{
   color: var(--color-primary-light);
 }
 .footer-puppy{}
+
+@media (max-width: 1280px){
+  .header-wrap, .wrap, .not-only-content{
+    max-width: 92.2vw;
+  }
+}
