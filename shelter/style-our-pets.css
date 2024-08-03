@@ -161,17 +161,18 @@ button{
 
 .main{
   height: 1262px;
+  width: 100%;
   background-color: var(--color-light-l);
   padding-top: 80px;
 }
 .main-content{
-  width: 1200px;
+  width: calc(100% - 80px);
   margin-left: 40px;
   margin-right: 40px;
 }
 .main-heading{
   color: var(--color-dark-l);
-  margin: 0 400px 0 400px;
+  margin: 0 auto;
   text-align: center;
   width: 400px;
   margin-bottom: 45px;
@@ -180,11 +181,12 @@ button{
   padding-top: 15px;
 }
 .card-container{
-  width: 1200px;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 30px;
   column-gap: 40px;
+  margin: 0 auto;
 }
 
 .card{
@@ -350,5 +352,38 @@ footer{
   }
   .header-links{
     margin-right: 30px;
+  }
+
+  .card-container{
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 30px;
+    column-gap: 40px;
+  }
+  .wrap{
+
+  }
+  .main{
+
+  }
+  .main-content{
+    width: calc(100% - 60px);
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .main-heading{
+    margin-bottom: 15px;
+  }
+  .card-container{
+    width: calc(100% - 128px);
+  }
+  .pagination-container{
+    margin-top: 40px;
+  }
+}
+@media (max-width: 768px){
+  .card-container{
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+    column-gap: 40px;
   }
 }
