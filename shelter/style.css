@@ -241,19 +241,24 @@ button:hover{
   margin-right: 40px;
   margin-top: 80px;
   margin-bottom: 100px;
-  width: 1200px;
-  height: 408px;
+
+  width: calc(100% - 80px);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 120px;
 }
 .about-pets{
+  display: block;
+  margin: 0 auto;
   margin-left: 175px;
 }
 .about-inner-content{
   height: 380px;
   width: 430px;
   margin-right: 175px;  
+  order: 1;
 }
 .about-heading{
   margin-top: 14px;
@@ -588,6 +593,19 @@ footer{
     width: 569px;
     margin-top: 100px;
     margin-left: calc(100vw - 638px);
+  }
+
+  .about-content{
+    margin-top: 66px;
+  }
+  .about-pets{
+    margin-top: -25px;
+    margin-left: 195px;
+  }
+  .about-inner-content{
+    order: -1;
+    width: calc(100vw - 338px);
+    margin: 0 auto;
   }
 
   .pets{
