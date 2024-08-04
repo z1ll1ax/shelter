@@ -335,6 +335,9 @@ button:hover{
   transition: background-color 0.2s;
 }
 .card-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 9px 9px 0 0;
   width: 270px;
   height: 270px;
@@ -572,8 +575,6 @@ footer{
     padding-top: 150px;
     height: 1015px;
   }
-  .not-only-content{
-  }
   .not-only-inner-content{
     width: calc(100vw - 308px);
     margin: 0 auto;
@@ -624,6 +625,13 @@ footer{
   }
   .pets-slider-right-button{
     margin-left: 12px;
+  }
+  .pets-card-container{
+    width: calc(100vw - 188px);
+  }
+  .card{
+    min-width: 270px;
+    width: 50vw;
   }
 
 
