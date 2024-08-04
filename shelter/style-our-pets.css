@@ -24,6 +24,7 @@
 html{
   overflow-x: hidden;
   scroll-behavior: smooth;
+  min-width: 320px;
 }
 body {
   /* padding: 0 calc(20px - (100vw - 100%)) 0 0; */
@@ -101,6 +102,21 @@ button{
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+}
+.header-hamburger-button{
+  display: none;
+  margin-right: 14px;
+  color: none;
+  background-color: var(--color-light-xl);
+  border: none;
+  border-radius: 15px;
+  transition: background-color 0.2s;
+}
+.header-hamburger-button:hover{
+  background-color: var(--color-light-s);
+}
+.header-hamburger-img{
+  display: none;
 }
 .header-title{
   text-align: left;
@@ -302,8 +318,6 @@ footer{
 .footer-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;  
-
-   /*TODO width: 740px;*/
 }
 .footer-contacts{
   width: 280px;
@@ -369,7 +383,7 @@ footer{
     column-gap: 40px;
   }
   .main{
-    padding-top: 42px;
+    padding-top: 80px;
   }
   .wrap{
     padding-bottom: 76px;
@@ -384,6 +398,18 @@ footer{
   }
   .card-container{
     width: calc(100% - 128px);
+  }
+  .card{
+    border-radius: 9px;
+    width: 270px;
+  }
+  .card-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card-text{
+    margin-top: 30px;
   }
   .pagination-container{
     margin-top: 40px;
@@ -412,6 +438,16 @@ footer{
   .header-title{
     margin-left: 20px;
   }
+  .header-hamburger-button{
+    display: block;
+  }
+  .header-hamburger-img{
+    display: block;
+  }
+
+  .main{
+    padding-top: 42px;
+  }
   .main-heading{
     width: 300px;
     margin-bottom: 42px;
@@ -435,6 +471,18 @@ footer{
     margin-left: 15px;
     margin-right: 15px;
   }
+  .card{
+    border-radius: 9px;
+    width: calc(100vw - 50px);
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .card-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .footer-container{
     grid-template-columns: 1fr;
   }
@@ -453,11 +501,11 @@ footer{
     grid-template-columns: 1fr;
   }
   .footer-heading{
-    width: 278px;
+    width: calc(100% - 42px);
     font-size: 25px;
     text-align: center;
     margin-top: -9px;
-    margin-left: 10px;
+    margin-left: 20px;
   }
   .footer-inner-container{
     justify-content: center;
@@ -465,12 +513,12 @@ footer{
     margin-right: 0px;
   }
   .footer-contacts{
-    width: 300px;
+    width: calc(100% - 20px);
     margin: 0 auto;
     height: 208px;
   } 
   .footer-location{
-    width: 300px;
+    width: calc(100% - 20px);
     margin: 0 auto;
     margin-top: 40px;
     height: 222px;
@@ -486,5 +534,10 @@ footer{
     margin-top: 30px;
     margin-left: calc(30% - 64px);
     width: 260px;
+  }
+}
+@media (max-width: 319px){
+  html{
+    overflow-x: scroll;
   }
 }
