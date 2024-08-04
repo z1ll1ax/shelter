@@ -636,13 +636,14 @@ footer{
 
 
   .help-content{
-    width: 630px;
+    width: calc(100vw - 138px);
     margin: 0 auto;
     margin-top: 80px;
     margin-bottom: 100px;
   }
   .list{
     column-gap: 60px;
+    justify-content: space-between;
   }
   .list-item{
     width: 170px;
