@@ -436,6 +436,7 @@ button:hover{
 .donation-content{
   display: flex;
   height: 282px;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .donation-img{
@@ -647,6 +648,18 @@ footer{
   }
   .list-item{
     width: 170px;
+  }
+
+  .donation{
+    height: 600px;
+  }
+  .donation-img{
+    order: 1;
+    margin-top: 37px;
+    margin-left: 25px;
+  }
+  .donation-inner-content{
+    width: calc(100vw - 388px);
   }
 
   .hidden-768{
