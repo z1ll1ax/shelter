@@ -111,13 +111,13 @@ button:hover{
   display: none;
   margin-right: 14px;
   color: none;
-  background-color: var(--color-light-xl);
+  background-color: transparent;
   border: none;
   border-radius: 15px;
   transition: background-color 0.2s;
 }
 .header-hamburger-button:hover{
-  background-color: var(--color-light-s);
+  background-color: rgba(13, 13, 13, 0.4);
 }
 .header-hamburger-img{
   display: none;
@@ -192,11 +192,12 @@ button:hover{
   margin: 0 auto;
 }
 .not-only-content{
-  width: 1200px;
+  width: calc(100% - 80px);
   height: 728px;
   margin-left: 40px;
   margin-right: 40px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .not-only-inner-content{
@@ -219,6 +220,7 @@ button:hover{
   padding-right: 45px;
   padding-top: 15px;
   padding-bottom: 15px;
+
   color: var(--color-dark-3xl);
   font-size: 17px;
   font-family: Georgia;
@@ -228,7 +230,7 @@ button:hover{
   margin-top: 42px;
 }
 .not-only-puppy{
-
+  margin-left: 0px;
 }
 
 .about{
@@ -397,7 +399,7 @@ button:hover{
   flex-wrap: wrap;
   row-gap: 55px;
   column-gap: 120px;
-  width: 1029px;
+  width: 100%;
 }
 .list-item{
   height: 113px;
@@ -559,6 +561,65 @@ footer{
   }
   .header-links{
     margin-right: 30px;
+  }
+
+  .not-only{
+    padding-top: 150px;
+    height: 1015px;
+  }
+  .not-only-content{
+  }
+  .not-only-inner-content{
+    width: calc(100vw - 308px);
+    margin: 0 auto;
+  }
+  .not-only-title{
+    width: calc(100vw - 458px);
+  }
+  .not-only form{
+    display: flex;
+    justify-content: center;
+  }
+  .not-only-button{
+    margin: 0 auto;
+    margin-top: 42px;
+  }
+  .not-only-puppy{
+    width: 569px;
+    margin-top: 100px;
+    margin-left: calc(100vw - 638px);
+  }
+
+  .pets{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .pets-card-container{
+    width: 580px;
+  }
+  .card{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .pets-slider-left-button{
+    margin-right: 12px;
+  }
+  .pets-slider-right-button{
+    margin-left: 12px;
+  }
+
+
+  .help-content{
+    width: 630px;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 100px;
+  }
+  .list{
+    column-gap: 60px;
+  }
+  .list-item{
+    width: 170px;
   }
 
   .hidden-768{
