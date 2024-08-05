@@ -760,6 +760,38 @@ footer{
     margin-left: calc(100% - 280px);
   }
 
+  .help-heading{
+    width: calc(100vw - 90px);
+    margin-top: -42px;
+    margin-bottom: 40px;
+    font-size: 25px;
+  }
+  .help-content{
+    width: calc(100% - 30px);
+  }
+  .list{
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: space-between;
+  }
+  .list-item{
+    width: 130px;
+    height: 87px;
+  }
+  .list-img{
+    width: 50px;
+    margin-top: -5px;
+    margin-bottom: 18px;
+  }
+  .list-text{
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: 'Georgia';
+    letter-spacing: 0.06em;
+    line-height: 110%;
+  }
+
   .footer-container{
     grid-template-columns: 1fr;
   }
