@@ -13,7 +13,9 @@
 	--start-screen-gradient-background: #211f20; 
 	--footer-gradient-background: #211f20;
 }
-
+/*TODO: 
+width<320px and everything collapse 
+(our-pets too)*/
 @font-face {
   font-family: 'Georgia', sans-serif;
   src: url('fonts/georgia/georgia-regular.ttf');
@@ -23,9 +25,9 @@
 }
 
 html{
-  min-width: 320px;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  min-width: 320px;
 }
 body {
   margin: 0 auto;
@@ -724,6 +726,38 @@ footer{
     width: 260px;
     margin-left: -262px;
     height: 271.77px;
+  }
+
+  .about-content{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 42px;
+    width: calc(100vw - 20px);
+  }
+  .about-inner-content{
+    width: 100vw;
+  }
+  .about-heading{
+    text-align: center;
+    font-size: 25px;
+    width: calc(100vw - 50px);
+    margin-top: 0px;
+    margin-right: 0px;
+    margin: 0 auto;
+  }
+  .about-subheading{
+    margin: 0 auto;
+    text-align: justify;
+    margin-top: 25px;
+    margin-bottom: -3px;
+    width: calc(100vw - 50px);
+  }
+  .about-pets{
+    width: 260px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 35px;
+    margin-left: calc(100% - 280px);
   }
 
   .footer-container{
