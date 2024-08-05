@@ -13,9 +13,7 @@
 	--start-screen-gradient-background: #211f20; 
 	--footer-gradient-background: #211f20;
 }
-/*TODO: 
-width<320px and everything collapse 
-(our-pets too)*/
+
 @font-face {
   font-family: 'Georgia', sans-serif;
   src: url('fonts/georgia/georgia-regular.ttf');
@@ -685,6 +683,9 @@ footer{
 }
 @media (max-width: 767px){
   
+  .header{
+    min-width: 320px;
+  }
   .header-title{
     margin-left: 20px;
   }
@@ -702,6 +703,7 @@ footer{
     margin-left: 10px;
     margin-right: 10px;
     width: calc(100vw - 20px);
+    min-width: 300px;
     height: 523px;
   }
   .not-only-inner-content{
@@ -713,6 +715,7 @@ footer{
     font-size: 25px;
     letter-spacing: 0.06em;
     width: calc(100vw - 120px);
+    min-width: 200px;
     margin: 0 auto;
     text-align: center;
   }
@@ -733,15 +736,18 @@ footer{
     margin-right: 10px;
     margin-top: 43px;
     width: calc(100vw - 20px);
+    min-width: 300px;
     height: 830px;
   }
   .about-inner-content{
     width: 100vw;
+    min-width: 300px;
   }
   .about-heading{
     text-align: center;
     font-size: 25px;
     width: calc(100vw - 50px);
+    min-width: 270px;
     margin-top: 0px;
     margin-right: 0px;
     margin: 0 auto;
@@ -750,8 +756,9 @@ footer{
     margin: 0 auto;
     text-align: justify;
     margin-top: 25px;
-    margin-bottom: -3px;
+    margin-bottom: -4px;
     width: calc(100vw - 50px);
+    min-width: 270px;
   }
   .about-pets{
     width: 260px;
@@ -759,6 +766,7 @@ footer{
     margin: 0 auto;
     margin-top: 35px;
     margin-left: calc(100% - 280px);
+    
   }
 
   .pets{
