@@ -839,6 +839,60 @@ footer{
     line-height: 110%;
   }
 
+  .donation{
+    padding: 42px 10px 0 10px;
+    height: 500.2px;
+  }
+  .donation-inner-content{
+    width: calc(100vw - 20px);
+    min-width: 320px;
+  }
+  .donation-heading{
+    width: calc(100vw - 20px);
+    min-width: 320px;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .donation-subheading{
+    width: calc(100vw - 47px);
+    min-width: 273px;
+    letter-spacing: 0em;
+    line-height: 100%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+  .credit-card-container{
+    width: calc(100vw - 39px);
+    min-width: 281px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .credit-card-number{
+    margin: 0;
+    margin-top: 2px;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: 'Georgia';
+    letter-spacing: 0.06em;
+    line-height: 110%;
+  }
+  .donation-info{
+    width: calc(100vw - 40px);
+    min-width: 280px;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: 18px;
+    margin-bottom: 42px;
+  }
+  .donation-img{
+    width: 260px;
+    height: 135.2px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 30px;
+  }
+
   .footer-container{
     grid-template-columns: 1fr;
   }
