@@ -693,6 +693,39 @@ footer{
     display: block;
   }
 
+  .not-only{
+    height: 673px;
+  }
+  .not-only-content{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100vw - 20px);
+    height: 523px;
+  }
+  .not-only-inner-content{
+    width: 100%;
+    height: 673px;
+    margin: 0;
+  }
+  .not-only-title{
+    font-size: 25px;
+    letter-spacing: 0.06em;
+    width: calc(100vw - 120px);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .not-only-subtitle{
+    font-size: 15px;
+    text-align: center;
+  }
+  .not-only-puppy{
+    margin-top: 0px;
+    align-self: flex-end;
+    width: 260px;
+    margin-left: -262px;
+    height: 271.77px;
+  }
+
   .footer-container{
     grid-template-columns: 1fr;
   }
