@@ -474,7 +474,7 @@ footer{
   }
   .header-links{
     height: 100vh;
-    background: var(--color-dark-2xl);
+    background: var(--color-light-l);
     position: fixed;
     flex-direction: column;
     width: 320px;
@@ -494,10 +494,6 @@ footer{
     margin-right: 20px;
     font-size: 32px;
     line-height: 160%;
-    color: var(--color-dark-s);
-  }
-  .header-link:hover{
-    color: var(--color-light-s);
   }
   #active-link{
     text-decoration: underline;
@@ -505,6 +501,7 @@ footer{
     text-decoration-thickness: 3px;
     text-underline-offset: 15px;
   }
+
   .main{
     padding-top: 42px;
   }
