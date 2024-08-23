@@ -28,7 +28,6 @@ html{
   min-width: 320px;
 }
 body {
-  /* padding: 0 calc(20px - (100vw - 100%)) 0 0; */
   margin: 0 auto;
 }
 
@@ -91,6 +90,15 @@ button{
   box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.1);
 }
 
+.blur{
+  display: none;
+  position: fixed;
+  margin-top: -30px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(41, 41, 41, 0.6);
+  z-index: 1;
+}
 
 .header{
   width: 100%;
@@ -105,16 +113,31 @@ button{
   justify-content: space-between;
 }
 .header-hamburger-button{
+  width: 42px;
   display: none;
+  margin-top: -8px;
   margin-right: 14px;
   color: none;
-  background-color: var(--color-light-xl);
+  background-color: transparent;
   border: none;
   border-radius: 15px;
   transition: background-color 0.2s;
+  z-index: 10;
 }
+.hamburger-icon{
+  width: 30px;
+  transform: rotate(0deg);
+  transition: transform 0.75s;
+}
+.hamburger-line{
+  width: 30px;
+  content: "";
+  margin-top: 8px;
+  border-top: 2px solid var(--color-dark-3xl);
+}
+
 .header-hamburger-button:hover{
-  background-color: var(--color-light-s);
+  background-color: rgba(225, 225, 225, 0.3);
 }
 .header-hamburger-img{
   display: none;
@@ -148,6 +171,7 @@ button{
   margin-right: 40px;
   gap: 36px;
   align-items: center;
+  z-index: 5;
 }
 .header-link{
   text-decoration: none;
@@ -445,7 +469,42 @@ footer{
   .header-hamburger-img{
     display: block;
   }
-
+  .header-hamburger-button:hover{
+    display: block;
+  }
+  .header-links{
+    height: 100vh;
+    background: var(--color-dark-2xl);
+    position: fixed;
+    flex-direction: column;
+    width: 320px;
+    right: 0;
+    margin-top: -30px;
+    margin-right: -320px;
+    gap: 42px;
+    align-items: center;
+    padding-top: 248px;
+    transition: margin-right 1s;
+  }
+  .header-link{
+    font-family: 'Arial', 'Times New Roman', Times, serif;
+    font-weight: 400;
+    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 32px;
+    line-height: 160%;
+    color: var(--color-dark-s);
+  }
+  .header-link:hover{
+    color: var(--color-light-s);
+  }
+  #active-link{
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 15px;
+  }
   .main{
     padding-top: 42px;
   }

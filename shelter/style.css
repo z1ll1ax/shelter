@@ -107,14 +107,29 @@ button:hover{
   display: flex;
   justify-content: space-between;
 }
+
 .header-hamburger-button{
+  width: 42px;
   display: none;
+  margin-top: -8px;
   margin-right: 14px;
   color: none;
   background-color: transparent;
   border: none;
   border-radius: 15px;
   transition: background-color 0.2s;
+  z-index: 10;
+}
+.hamburger-icon{
+  width: 30px;
+  transform: rotate(0deg);
+  transition: transform 0.75s;
+}
+.hamburger-line{
+  width: 30px;
+  content: "";
+  margin-top: 8px;
+  border-top: 2px solid var(--color-primary);
 }
 .header-hamburger-button:hover{
   background-color: rgba(13, 13, 13, 0.4);
@@ -146,8 +161,19 @@ button:hover{
   margin-right: 1px;
   -webkit-text-stroke: 0.7px #000;
 }
+.blur{
+  display: none;
+  position: fixed;
+  margin-top: -30px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(41, 41, 41, 0.6);
+  z-index: 1;
+}
+
 .header-links{
   display: flex;
+  z-index: 5;
   margin-right: 40px;
   gap: 36px;
   align-items: center;
@@ -692,10 +718,46 @@ footer{
   .header-hamburger-button{
     display: block;
   }
+  .header-hamburger-button:hover{
+    display: block;
+  }
   .header-hamburger-img{
     display: block;
   }
-
+  .header-links{
+    height: 100vh;
+    background: var(--color-dark-3xl);
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    width: 320px;
+    right: 0;
+    margin-top: -30px;
+    margin-right: -320px;
+    gap: 42px;
+    align-items: center;
+    padding-top: 248px;
+    transition: margin-right 1s;
+  }
+  .header-link{
+    font-family: 'Arial', 'Times New Roman', Times, serif;
+    font-weight: 400;
+    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 32px;
+    line-height: 160%;
+    color: var(--color-dark-s);
+  }
+  .header-link:hover{
+    color: var(--color-light-s);
+  }
+  #active-link{
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 15px;
+  }
   .not-only{
     height: 673px;
   }

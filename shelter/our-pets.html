@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="style-our-pets.css">
   <link rel="icon" href="imgs/footer-puppy.png">
-  <script src="index.js"></script>
   <title>Shelter</title>
 </head>
 <body>
@@ -17,14 +16,19 @@
           <p class="header-subtitle">Shelter for pets in Boston</p>
         </a>
       </div>
-      <nav class="header-links hidden-320">
+      <div class='blur'></div>
+      <nav class="header-links">
         <a class="header-link" href="main.html">About the shelter</a>
         <a class="header-link" id="active-link">Our pets</a>
         <a class="header-link" href="main.html#help">Help the shelter</a>
         <a class="header-link" href="#footer">Contacts</a>
       </nav>
       <button class="header-hamburger-button">
-        <img class="header-hamburger-img" src="imgs/Burger.svg" alt="hamburger-icon">
+        <div class="hamburger-icon">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </div>
       </button>
     </div>
   </header>
@@ -123,5 +127,6 @@
       </div>
     </div>
   </footer>
+  <script src="index.js"></script>
 </body>
 </html>
