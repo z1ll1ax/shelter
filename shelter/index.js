@@ -17,7 +17,6 @@ let headerLink = document.getElementsByClassName("header-link");
 });
 
 window.addEventListener('resize', function() { 
-    console.log(hamburgerOpened);
     if (window.innerWidth >= 768){
         blur.style.display = 'none';
         document.documentElement.style.overflowY = "auto";
@@ -27,6 +26,7 @@ window.addEventListener('resize', function() {
     else if (hamburgerOpened === -1) {
         blur.style.display = 'block';
         hamburgerIcon.style.transform = `rotate(90deg)`; 
+        document.documentElement.style.overflowY = "hidden";
     }
     else {
         headerLinks.style.marginRight = `-640px`;
