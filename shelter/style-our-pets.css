@@ -301,19 +301,19 @@ button{
   line-height: 115%;
 }
 
-#disabled-button, #disabled-button-last{
+#disabled-button{
   border: var(--color-dark-s) solid 2px;
   color: var(--color-dark-s);
   cursor: no-drop;
 }
-#active-button, #active-button-last{
+#active-button{
   border-radius: 100px;
   height: 52px;
   width: 52px;
   background-color: var(--color-light-l);
   border: var(--color-primary) solid 2px;
 }
-#active-button:hover, #active-button-last:hover{
+#active-button:hover{
   cursor: pointer;
   background-color: var(--color-primary-light);
   border: none;
