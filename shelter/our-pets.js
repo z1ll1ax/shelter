@@ -6,6 +6,8 @@ let hamburgerIcon = document.getElementsByClassName("hamburger-icon")[0];
 let headerLinks = document.getElementsByClassName("header-links")[0];
 let headerLink = document.getElementsByClassName("header-link");
 let blur = document.getElementsByClassName("blur")[0];
+let popUp = document.getElementsByClassName("popup")[0];
+let popUpCloseButton = document.getElementsByClassName("popup-button")[0];
 
 let cards = document.getElementsByClassName("card");
 let paginationButtons = document.getElementsByClassName("pagination-button");
@@ -14,10 +16,13 @@ let hamburgerOpened = 1;
 const hamburgerWidth = 320;
 const hamburgerIconDegree = 45;
 
+let popUpOpened = false;
 let currentPage = 1;
 let pageAmount = 6;
 const cardAmount = 48;
 let cardArray = [];
+
+//TODO: PopUp card may be smaller than content, css needs fix
 
 async function fetchJSONData() {
     const res = await fetch("./pets.json");
@@ -27,14 +32,18 @@ async function fetchJSONData() {
 
 
 hamburgerButton.addEventListener('click', function() { Hamburger() });
-blur.addEventListener('click', function() { Hamburger() });
+blur.addEventListener('click', function() { Hamburger(); ClosePopUp(); });
 [...headerLink].forEach(element => {
     element.addEventListener('click', function() { Hamburger() });
 });
 paginationButtons[0].addEventListener('click', function() { PageTo(1) });
 paginationButtons[1].addEventListener('click', function() { PageTo(currentPage - 1) });
 paginationButtons[3].addEventListener('click', function() { PageTo(currentPage + 1) });
-paginationButtons[4].addEventListener('click', function() { PageTo(pageAmount) }); //TODO: replace 6 with 6/8/16
+paginationButtons[4].addEventListener('click', function() { PageTo(pageAmount) });
+[...cards].forEach(element => {
+    element.addEventListener('click', function() { OpenPopUp(element.id) });
+});
+popUpCloseButton.addEventListener('click', function() { ClosePopUp() });
 
 window.addEventListener('resize', function() { 
     BurgerOnResize();
@@ -49,6 +58,39 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log(cardArray);
 });
 
+function OpenPopUp(id){
+    //console.warn(id);
+    popUpOpened = true;
+    ShowPopUp();
+    InitPopUp(id);
+    CloseYScroll();
+    ShowBlur();
+}
+function ClosePopUp(){
+    popUpOpened = false;
+    HidePopUp();
+    OpenYScroll();
+    HideBlur();
+}
+function InitPopUp(id){
+    (async () => {
+        let pets = await fetchJSONData();
+        popUp.querySelector(".popup-title").innerHTML = pets[id].name;
+    popUp.querySelector(".popup-img").src = pets[id].img;
+    popUp.querySelector(".popup-subtitle").innerHTML = pets[id].type + ' - ' + pets[id].breed;
+    popUp.querySelector(".popup-description").innerHTML = pets[id].description;
+    popUp.querySelector(".popup-stat-1").innerHTML = `<b>Age:</b> ` + pets[id].age;
+    popUp.querySelector(".popup-stat-2").innerHTML = `<b>Inoculations:</b> ` + pets[id].inoculations;
+    popUp.querySelector(".popup-stat-3").innerHTML = `<b>Diseases:</b> ` + pets[id].diseases;
+    popUp.querySelector(".popup-stat-4").innerHTML = `<b>Parasites:</b> ` + pets[id].parasites;
+    })();
+}
+function ShowPopUp(){
+    popUp.style.display = 'block';
+}
+function HidePopUp(){
+    popUp.style.display = 'none';
+}
 function MakeCardArray(){
     let array = [];
     for (let k = 0; k < 6; k++){
@@ -75,6 +117,7 @@ function CardUpdate(){
             let pets = await fetchJSONData();
             cards[i].querySelector(".card-image").src = pets[cardArray[(currentPage - 1) * (48 / pageAmount) + i]].img;
             cards[i].querySelector(".card-text").innerHTML = pets[cardArray[(currentPage - 1) * (48 / pageAmount) + i]].name;
+            cards[i].id = cardArray[(currentPage - 1) * (48 / pageAmount) + i];
         })();
     }
 }
@@ -98,7 +141,6 @@ function PageTo(number){
         paginationButtons[4].id = 'disabled-button';
     }
 }
-
 function ChangePageAmount(){
     if (window.innerWidth >= 1280 && pageAmount !== 6){
         pageAmount = 6;
@@ -118,8 +160,6 @@ function ChangePageAmount(){
         CardUpdate();
     }
 }
-
-
 function ShowBlur(){
     blur.style.display = 'block';
 }
@@ -154,7 +194,7 @@ function Hamburger(){
     }
 }
 function BurgerOnResize(){
-    if (window.innerWidth >= 768){
+    if (window.innerWidth >= 768 && popUpOpened === false){
         HideBlur();
         OpenYScroll();
         SetHeaderLinksMarginRight(0);
@@ -170,34 +210,3 @@ function BurgerOnResize(){
     }
 }
 
-// let prevSlider = [];
-// let currSlider = [];
-
-// document.addEventListener("DOMContentLoaded", function(){
-    // amountOfCardsShown = SetAmountOfCardsShown();
-    // InitRandomCardIds();
-    // console.log(currSlider);
-    // let cards = document.getElementsByClassName("card");
-    // for (let i = 0; i < 3; i++){
-    //     cards[currSlider[i]].style.display = 'block';
-    // }
-// });
-// function InitRandomCardIds(){
-//     prevSlider = currSlider;
-//     currSlider = [];
-//     while (currSlider.length < 3){
-//         let random = Math.floor(Math.random() * 8);
-//         if (!currSlider.includes(random)){
-//             currSlider.push(random);
-//         }
-//     }
-// }
-// function SetAmountOfCardsShown(){
-//     if (window.innerWidth > 768){ return 3; }
-//     else if (window.innerWidth > 320){ return 2; }
-//     else { return 1; }
-// }
-
-function Slider(){}
-function Pagination(){}
-function PopUp(){}
