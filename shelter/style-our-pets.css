@@ -705,7 +705,7 @@ footer{
   }
   .popup-card{
     width: 240px;
-    height: 341px;
+    height: auto;
   }
   .popup-img{
     display: none;

@@ -1,4 +1,4 @@
-let text="SHELTER PART 3";
+let text="SHELTER PART 3\n\tBURGER MENU 26/26\n\tSLIDER 0/36\n\tPAGINATION 36/36\n\tPOPUP 12/12\nTOTAL: 74/110";
 console.log(text);
 
 let hamburgerButton = document.getElementsByClassName("header-hamburger-button")[0];
@@ -6,43 +6,74 @@ let hamburgerIcon = document.getElementsByClassName("hamburger-icon")[0];
 let headerLinks = document.getElementsByClassName("header-links")[0];
 let headerLink = document.getElementsByClassName("header-link");
 let blur = document.getElementsByClassName("blur")[0];
+let popUp = document.getElementsByClassName("popup")[0];
+let popUpCloseButton = document.getElementsByClassName("popup-button")[0];
+
+let cards = document.getElementsByClassName("card");
+let paginationButtons = document.getElementsByClassName("pagination-button");
 
 let hamburgerOpened = 1;
 const hamburgerWidth = 320;
 const hamburgerIconDegree = 45;
-let amountOfCardsShown = 3;
-const totalCards = 8;
-// let pets = fetch('../assets/js/pets.json')
-//   .then(response => response.json())
-//   .then(jsonData => console.log(jsonData));
 
+let popUpOpened = false;
 
-function fetchJSONData() {
-    fetch("./pets.json")
-        .then((res) => {
-            if (!res.ok) {
-                throw new Error
-                    (`HTTP error! Status: ${res.status}`);
-            }
-            return res.json();
-        })
-        .then((data) => 
-              console.log(data))
-        .catch((error) => 
-               console.error("Unable to fetch data:", error));
+async function fetchJSONData() {
+    const res = await fetch("./pets.json");
+    const p = await res.json();
+    return p;
 }
-fetchJSONData();
-
 
 hamburgerButton.addEventListener('click', function() { Hamburger() });
-blur.addEventListener('click', function() { Hamburger() });
+blur.addEventListener('click', function() { Hamburger(); ClosePopUp(); });
 [...headerLink].forEach(element => {
     element.addEventListener('click', function() { Hamburger() });
 });
 
+[...cards].forEach(element => {
+    element.addEventListener('click', function() { OpenPopUp(element.id) });
+});
+popUpCloseButton.addEventListener('click', function() { ClosePopUp() });
+
 window.addEventListener('resize', function() { 
     BurgerOnResize();
 });
+
+document.addEventListener("DOMContentLoaded", function(){
+});
+
+function OpenPopUp(id){
+    popUpOpened = true;
+    ShowPopUp();
+    InitPopUp(id);
+    CloseYScroll();
+    ShowBlur();
+}
+function ClosePopUp(){
+    popUpOpened = false;
+    HidePopUp();
+    OpenYScroll();
+    HideBlur();
+}
+function InitPopUp(id){
+    (async () => {
+        let pets = await fetchJSONData();
+        popUp.querySelector(".popup-title").innerHTML = pets[id].name;
+    popUp.querySelector(".popup-img").src = pets[id].img;
+    popUp.querySelector(".popup-subtitle").innerHTML = pets[id].type + ' - ' + pets[id].breed;
+    popUp.querySelector(".popup-description").innerHTML = pets[id].description;
+    popUp.querySelector(".popup-stat-1").innerHTML = `<b>Age:</b> ` + pets[id].age;
+    popUp.querySelector(".popup-stat-2").innerHTML = `<b>Inoculations:</b> ` + pets[id].inoculations;
+    popUp.querySelector(".popup-stat-3").innerHTML = `<b>Diseases:</b> ` + pets[id].diseases;
+    popUp.querySelector(".popup-stat-4").innerHTML = `<b>Parasites:</b> ` + pets[id].parasites;
+    })();
+}
+function ShowPopUp(){
+    popUp.style.display = 'block';
+}
+function HidePopUp(){
+    popUp.style.display = 'none';
+}
 function ShowBlur(){
     blur.style.display = 'block';
 }
@@ -77,7 +108,7 @@ function Hamburger(){
     }
 }
 function BurgerOnResize(){
-    if (window.innerWidth >= 768){
+    if (window.innerWidth >= 768 && popUpOpened === false){
         HideBlur();
         OpenYScroll();
         SetHeaderLinksMarginRight(0);
@@ -93,34 +124,3 @@ function BurgerOnResize(){
     }
 }
 
-// let prevSlider = [];
-// let currSlider = [];
-
-// document.addEventListener("DOMContentLoaded", function(){
-    // amountOfCardsShown = SetAmountOfCardsShown();
-    // InitRandomCardIds();
-    // console.log(currSlider);
-    // let cards = document.getElementsByClassName("card");
-    // for (let i = 0; i < 3; i++){
-    //     cards[currSlider[i]].style.display = 'block';
-    // }
-// });
-// function InitRandomCardIds(){
-//     prevSlider = currSlider;
-//     currSlider = [];
-//     while (currSlider.length < 3){
-//         let random = Math.floor(Math.random() * 8);
-//         if (!currSlider.includes(random)){
-//             currSlider.push(random);
-//         }
-//     }
-// }
-// function SetAmountOfCardsShown(){
-//     if (window.innerWidth > 768){ return 3; }
-//     else if (window.innerWidth > 320){ return 2; }
-//     else { return 1; }
-// }
-
-function Slider(){}
-function Pagination(){}
-function PopUp(){}

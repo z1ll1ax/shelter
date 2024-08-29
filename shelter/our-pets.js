@@ -1,4 +1,4 @@
-let text="SHELTER PART 3";
+let text="SHELTER PART 3\n\tBURGER MENU 26/26\n\tSLIDER 0/36\n\tPAGINATION 36/36\n\tPOPUP 12/12\nTOTAL: 74/110";
 console.log(text);
 
 let hamburgerButton = document.getElementsByClassName("header-hamburger-button")[0];
@@ -22,14 +22,13 @@ let pageAmount = 6;
 const cardAmount = 48;
 let cardArray = [];
 
-//TODO: PopUp card may be smaller than content, css needs fix
+
 
 async function fetchJSONData() {
     const res = await fetch("./pets.json");
     const p = await res.json();
     return p;
 }
-
 
 hamburgerButton.addEventListener('click', function() { Hamburger() });
 blur.addEventListener('click', function() { Hamburger(); ClosePopUp(); });
@@ -52,14 +51,11 @@ window.addEventListener('resize', function() {
 
 document.addEventListener("DOMContentLoaded", function(){
     ChangePageAmount();
-
     cardArray = MakeCardArray();
     CardUpdate();
-    console.log(cardArray);
 });
 
 function OpenPopUp(id){
-    //console.warn(id);
     popUpOpened = true;
     ShowPopUp();
     InitPopUp(id);
@@ -95,19 +91,31 @@ function MakeCardArray(){
     let array = [];
     for (let k = 0; k < 6; k++){
         let subArray = [0, 1, 2, 3, 4, 5, 6, 7];
-        subArray = shuffleArray(subArray);
+        let lastFiveElements = array.slice(-5);
+        subArray = shuffleArray(subArray, lastFiveElements);
         for (let i = 0; i < 8; i++){
             array.push(subArray[i]);
         }
     }
     return array;
 }
-function shuffleArray(array){ //TODO: Shuffle is wrong
+function shuffleArray(array, lastFiveElements){
     let newArray = [];
-    for (let i = 0; i < 8; i++){
+    while(newArray.length < 8){
         const j = Math.floor(Math.random() * array.length + 1) - 1;
-        newArray[i] = array[j];
-        array.splice(j, 1);
+        let isRepeating = false;
+        for (let k = 0; k < lastFiveElements.length; k++){
+            if (array[j] === lastFiveElements[k]){
+                isRepeating = true;
+                break;
+            }
+        }
+        if (!isRepeating) {
+            lastFiveElements.push(array[j]);
+            lastFiveElements.splice(0, 1);
+            newArray.push(array[j]);
+            array.splice(j, 1);
+        }
     }
     return newArray;
 }
