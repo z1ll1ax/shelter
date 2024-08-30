@@ -8,15 +8,18 @@ let headerLink = document.getElementsByClassName("header-link");
 let blur = document.getElementsByClassName("blur")[0];
 let popUp = document.getElementsByClassName("popup")[0];
 let popUpCloseButton = document.getElementsByClassName("popup-button")[0];
+let petsSliderLeft = document.getElementsByClassName("pets-slider-left-button")[0];
+let petsSliderRight = document.getElementsByClassName("pets-slider-right-button")[0];
 
 let cards = document.getElementsByClassName("card");
-let paginationButtons = document.getElementsByClassName("pagination-button");
 
 let hamburgerOpened = 1;
 const hamburgerWidth = 320;
 const hamburgerIconDegree = 45;
 
 let popUpOpened = false;
+
+let cardsAmount = 3;
 
 async function fetchJSONData() {
     const res = await fetch("./pets.json");
@@ -25,6 +28,10 @@ async function fetchJSONData() {
 }
 
 hamburgerButton.addEventListener('click', function() { Hamburger() });
+
+petsSliderLeft.addEventListener('click', function() { moveSliderLeft() });
+petsSliderRight.addEventListener('click', function() { moveSliderRight() });
+
 blur.addEventListener('click', function() { Hamburger(); ClosePopUp(); });
 [...headerLink].forEach(element => {
     element.addEventListener('click', function() { Hamburger() });
@@ -39,9 +46,83 @@ window.addEventListener('resize', function() {
     BurgerOnResize();
 });
 
-document.addEventListener("DOMContentLoaded", function(){
+window.addEventListener('resize', function() { 
+    ChangeCardsAmount();
 });
 
+document.addEventListener("DOMContentLoaded", function(){
+    initSlider();
+});
+
+let prevSlider = [];
+let currSlider = [];
+let prevAction = 0;
+function initSlider(){
+    currSlider = NRandomCards();
+    CardUpdate();
+}
+function moveSliderLeft(){
+    if (prevAction === 1){
+        //to prevSlider
+    }
+    else {
+        //randomthree except previous
+    }
+    prevSlider = currSlider;
+    prevAction = -1;
+    currSlider = [];
+}
+function moveSliderRight(){
+    let hiddencards = document.getElementsByClassName('card-hidden');
+    console.log(hiddencards);
+    [...hiddencards].forEach((el) => {
+        el.className = 'card';
+    });
+    if (prevAction === -1){
+        //to prevSlider
+    }
+    else {
+        //randomthree except previous
+    }
+    prevSlider = currSlider;
+    prevAction = 1;
+    currSlider = [];
+}
+function CardUpdate(){
+    for (let i = 0; i < cardsAmount; i++){
+        (async () => {
+            let pets = await fetchJSONData();
+            cards[i].querySelector(".card-image").src = pets[currSlider[i]].img;
+            cards[i].querySelector(".card-text").innerHTML = pets[currSlider[i]].name;
+            cards[i].id = currSlider[i];
+        })();
+    }
+}
+function NRandomCards(){
+    let randomArray = [0, 1, 2, 3, 4, 5, 6, 7];
+    let newArray = [];
+    while(newArray.length < cardsAmount){
+        const j = Math.floor(Math.random() * randomArray.length + 1) - 1;
+        newArray.push(randomArray[j]);
+        randomArray.splice(j, 1);
+    }
+    return newArray;
+}
+
+function ChangeCardsAmount(){
+    if (window.innerWidth >= 1280 && cardsAmount !== 3){
+        cardsAmount = 3;
+        initSlider()
+    }
+    else if (window.innerWidth >= 768 && window.innerWidth < 1280 && cardsAmount !== 2){
+        cardsAmount = 2;
+        initSlider()
+    }
+    else if (window.innerWidth >= 320 && window.innerWidth < 768 && cardsAmount !== 1){
+        cardsAmount = 1;
+        initSlider()
+    }
+}
 function OpenPopUp(id){
     popUpOpened = true;
     ShowPopUp();

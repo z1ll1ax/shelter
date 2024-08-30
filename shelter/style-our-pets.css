@@ -86,10 +86,6 @@ button{
 .pets-main-button-link, .header-link, .header-main-title-link, .credit-card-number{
   text-decoration: none;
 }
-.header-main-title-link:hover .header-main-title{
-  box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.1);
-}
-
 .blur{
   display: none;
   position: fixed;
