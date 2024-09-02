@@ -333,6 +333,7 @@ button:hover{
   overflow: hidden;
   margin-bottom: 60px;
   max-width: calc(100% - 80px);
+  transition: all 1s;
 }
 .card{
   background-color: var(--color-light-s);
@@ -356,6 +357,7 @@ button:hover{
   border-radius: 100px;
   height: 52px;
   width: 52px;
+  min-width: 52px;
   margin-right: 8px;
   margin-top: -60px;
   background-color: var(--color-light-l);
@@ -365,6 +367,7 @@ button:hover{
   border-radius: 100px;
   height: 52px;
   width: 52px;
+  min-width: 52px;
   margin-left: 8px;
   margin-top: -60px;
   background-color: var(--color-light-l);
@@ -607,7 +610,7 @@ footer{
   left: calc(50% + 25px);
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 12;
+  z-index: 120;
 }
 .popup-button{
   position: fixed;

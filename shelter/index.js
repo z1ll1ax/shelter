@@ -57,8 +57,6 @@ let prevAction = 0;
 function initSlider(){
     currSlider = threeRandomCards();
     CardUpdate();
-    console.log(prevSlider);
-    console.log(currSlider);
 }
 //TODO: no animation on slider
 function moveSliderLeft(){
@@ -73,20 +71,20 @@ function moveSliderLeft(){
         currSlider = threeRandomCards();
         //randomthree except previous
     }
-    let hiddencards = Array.from(document.getElementsByClassName('hide'));
-    [...hiddencards].forEach((el) => {
-        el.classList.remove('hide');
-        //setTimeout(() => { el.classList.remove('hide'); }, 2000);
-    });
+    let cardContainer = document.querySelector('.pets-card-container');
+    //cardContainer.style.transform = 'translateX(1080px)';
+    //setTimeout(() => { 
     for (let i = cardsAmount * cardsSwiped; i < cardsAmount + cardsAmount * cardsSwiped; i++){
         cards[i].classList.add('hide');
+        cards[i + cardsAmount - (2 * cardsAmount * cardsSwiped)].classList.remove('hide');
     }
+    //}, 1000);
+        //cardContainer.style.transform = 'translateX(0px)';
+    
     cardsSwiped = !cardsSwiped;
     
     CardUpdate();
     prevAction = -1;
-    console.log(prevSlider);
-    console.log(currSlider);
 }
 function moveSliderRight(){
     if (prevAction === -1){
@@ -100,19 +98,13 @@ function moveSliderRight(){
        currSlider = threeRandomCards();
        //randomthree except previous
    }
-    let hiddencards = Array.from(document.getElementsByClassName('hide'));
-    [...hiddencards].forEach((el) => {
-        el.classList.remove('hide');
-        //setTimeout(() => { el.classList.remove('hide'); }, 2000);
-    });
     for (let i = cardsAmount * cardsSwiped; i < cardsAmount + cardsAmount * cardsSwiped; i++){
         cards[i].classList.add('hide');
+        cards[i + cardsAmount - (2 * cardsAmount * cardsSwiped)].classList.remove('hide');
     }
     cardsSwiped = !cardsSwiped;
     CardUpdate();
     prevAction = 1;
-    console.log(prevSlider);
-    console.log(currSlider);
 }
 function CardUpdate(){
     for (let i = cardsAmount * cardsSwiped; i < cardsAmount + cardsAmount * cardsSwiped; i++){
@@ -143,8 +135,6 @@ function threeRandomCards(){
     }
     return newArray;
 }
-
-
 function OpenPopUp(id){
     popUpOpened = true;
     ShowPopUp();
