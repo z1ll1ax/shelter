@@ -72,7 +72,7 @@ function moveSliderLeft(){
         //randomthree except previous
     }
     let cardContainer = document.querySelector('.pets-card-container');
-    cardContainer.style.transform = 'translateX(480px)';
+    //cardContainer.style.transform = 'translateX(480px)';
     //setTimeout(() => { 
     for (let i = cardsAmount * cardsSwiped; i < cardsAmount + cardsAmount * cardsSwiped; i++){
         cards[i].classList.add('hide');
