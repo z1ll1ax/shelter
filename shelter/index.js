@@ -14,12 +14,13 @@ let petsSliderRight = document.getElementsByClassName("pets-slider-right-button"
 let cards = document.getElementsByClassName("card");
 
 let hamburgerOpened = 1;
+let cardsSwiped = false; //false - 1-3, true 4-6 shown
 const hamburgerWidth = 320;
 const hamburgerIconDegree = 45;
 
 let popUpOpened = false;
 
-let cardsAmount = 3;
+const cardsAmount = 3;
 
 async function fetchJSONData() {
     const res = await fetch("./pets.json");
@@ -46,10 +47,6 @@ window.addEventListener('resize', function() {
     BurgerOnResize();
 });
 
-window.addEventListener('resize', function() { 
-    ChangeCardsAmount();
-});
-
 document.addEventListener("DOMContentLoaded", function(){
     initSlider();
 });
@@ -58,71 +55,96 @@ let prevSlider = [];
 let currSlider = [];
 let prevAction = 0;
 function initSlider(){
-    currSlider = NRandomCards();
+    currSlider = threeRandomCards();
     CardUpdate();
+    console.log(prevSlider);
+    console.log(currSlider);
 }
+//TODO: no animation on slider
 function moveSliderLeft(){
     if (prevAction === 1){
         //to prevSlider
+        let temp = currSlider;
+        currSlider = prevSlider;
+        prevSlider = temp;
     }
     else {
+        prevSlider = currSlider;
+        currSlider = threeRandomCards();
         //randomthree except previous
     }
-    prevSlider = currSlider;
+    let hiddencards = Array.from(document.getElementsByClassName('hide'));
+    [...hiddencards].forEach((el) => {
+        el.classList.remove('hide');
+        //setTimeout(() => { el.classList.remove('hide'); }, 2000);
+    });
+    for (let i = cardsAmount * cardsSwiped; i < cardsAmount + cardsAmount * cardsSwiped; i++){
+        cards[i].classList.add('hide');
+    }
+    cardsSwiped = !cardsSwiped;
+    
+    CardUpdate();
     prevAction = -1;
-    currSlider = [];
+    console.log(prevSlider);
+    console.log(currSlider);
 }
 function moveSliderRight(){
-    let hiddencards = document.getElementsByClassName('card-hidden');
-    console.log(hiddencards);
-    [...hiddencards].forEach((el) => {
-        el.className = 'card';
-    });
     if (prevAction === -1){
         //to prevSlider
+        let temp = currSlider;
+        currSlider = prevSlider;
+        prevSlider = temp;
+   }
+   else {
+       prevSlider = currSlider;
+       currSlider = threeRandomCards();
+       //randomthree except previous
+   }
+    let hiddencards = Array.from(document.getElementsByClassName('hide'));
+    [...hiddencards].forEach((el) => {
+        el.classList.remove('hide');
+        //setTimeout(() => { el.classList.remove('hide'); }, 2000);
+    });
+    for (let i = cardsAmount * cardsSwiped; i < cardsAmount + cardsAmount * cardsSwiped; i++){
+        cards[i].classList.add('hide');
     }
-    else {
-        //randomthree except previous
-    }
-    prevSlider = currSlider;
+    cardsSwiped = !cardsSwiped;
+    CardUpdate();
     prevAction = 1;
-    currSlider = [];
+    console.log(prevSlider);
+    console.log(currSlider);
 }
 function CardUpdate(){
-    for (let i = 0; i < cardsAmount; i++){
+    for (let i = cardsAmount * cardsSwiped; i < cardsAmount + cardsAmount * cardsSwiped; i++){
         (async () => {
             let pets = await fetchJSONData();
-            cards[i].querySelector(".card-image").src = pets[currSlider[i]].img;
-            cards[i].querySelector(".card-text").innerHTML = pets[currSlider[i]].name;
-            cards[i].id = currSlider[i];
+            cards[i].querySelector(".card-text").innerHTML = pets[currSlider[i - cardsAmount * cardsSwiped]].name;
+            cards[i].querySelector(".card-image").src = pets[currSlider[i - cardsAmount * cardsSwiped]].img;
+            cards[i].id = currSlider[i - cardsAmount * cardsSwiped];
         })();
     }
 }
-function NRandomCards(){
+function threeRandomCards(){
     let randomArray = [0, 1, 2, 3, 4, 5, 6, 7];
     let newArray = [];
     while(newArray.length < cardsAmount){
         const j = Math.floor(Math.random() * randomArray.length + 1) - 1;
-        newArray.push(randomArray[j]);
-        randomArray.splice(j, 1);
+        let existed = false;
+        for (let i = 0; i < prevSlider.length; i++){
+            if (prevSlider[i] === randomArray[j]) {
+                existed = true;
+                break;
+            }
+        }
+        if (!existed){
+            newArray.push(randomArray[j]);
+            randomArray.splice(j, 1);
+        }
     }
     return newArray;
 }
 
-function ChangeCardsAmount(){
-    if (window.innerWidth >= 1280 && cardsAmount !== 3){
-        cardsAmount = 3;
-        initSlider()
-    }
-    else if (window.innerWidth >= 768 && window.innerWidth < 1280 && cardsAmount !== 2){
-        cardsAmount = 2;
-        initSlider()
-    }
-    else if (window.innerWidth >= 320 && window.innerWidth < 768 && cardsAmount !== 1){
-        cardsAmount = 1;
-        initSlider()
-    }
-}
+
 function OpenPopUp(id){
     popUpOpened = true;
     ShowPopUp();
