@@ -651,13 +651,13 @@ footer{
 .popup-description{
   line-height: 114%;
 }
-.popup-stat::marker{
+.popup-stat-1::marker, .popup-stat-2::marker, .popup-stat-3::marker, .popup-stat-4::marker{
   color: var(--color-primary);
 }
 .popup-stats{
   margin-top: 40px;
 }
-.popup-stat{
+.popup-stat-1, .popup-stat-2, .popup-stat-3, .popup-stat-4{
   font-family: 'Georgia';
   font-weight: 400;
   font-size: 15px;
@@ -791,7 +791,6 @@ footer{
     left: calc(50% + 25px);
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 12;
   }
   .popup-card{
     width: 630px;
@@ -814,7 +813,7 @@ footer{
   .popup-stats{
     margin-top: 17px;
   }
-  .popup-stat{
+  .popup-stat-1, .popup-stat-2, .popup-stat-3, .popup-stat-4{
     margin-bottom: 7px;
   }
 
@@ -1160,7 +1159,7 @@ footer{
   .popup-stats{
     margin-top: 24px;
   }
-  .popup-stat{
+  .popup-stat-1, .popup-stat-2, .popup-stat-3, .popup-stat-4{
     margin-bottom: 5px;
   }
 }
