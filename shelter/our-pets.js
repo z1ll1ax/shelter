@@ -1,4 +1,4 @@
-let text="SHELTER PART 3\n\tBURGER MENU 26/26\n\tSLIDER 0/36\n\tPAGINATION 36/36\n\tPOPUP 12/12\nTOTAL: 74/110";
+let text="SHELTER PART 3\n\tBURGER MENU 26/26\n\tSLIDER 36/36\n\tPAGINATION 36/36\n\tPOPUP 12/12\nTOTAL: 110/110\n@31ll1ax - discord";
 console.log(text);
 
 let hamburgerButton = document.getElementsByClassName("header-hamburger-button")[0];

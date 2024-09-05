@@ -1,4 +1,4 @@
-let text="SHELTER PART 3\n\tBURGER MENU 26/26\n\tSLIDER 0/36\n\tPAGINATION 36/36\n\tPOPUP 12/12\nTOTAL: 74/110";
+let text="SHELTER PART 3\n\tBURGER MENU 26/26\n\tSLIDER 36/36\n\tPAGINATION 36/36\n\tPOPUP 12/12\nTOTAL: 110/110\n@31ll1ax - discord";
 console.log(text);
 
 let hamburgerButton = document.getElementsByClassName("header-hamburger-button")[0];
@@ -14,9 +14,9 @@ let petsSliderRight = document.getElementsByClassName("pets-slider-right-button"
 let cards = document.getElementsByClassName("card");
 
 let hamburgerOpened = 1;
-let cardsSwiped = false; //false - 1-3, true 4-6 shown
 const hamburgerWidth = 320;
 const hamburgerIconDegree = 45;
+const sliderTime = 2;
 
 let popUpOpened = false;
 
@@ -56,10 +56,15 @@ let currSlider = [];
 let prevAction = 0;
 function initSlider(){
     currSlider = threeRandomCards();
-    CardUpdate();
+    CardUpdate(3, 6);
+    console.log(currSlider);
+    console.log(prevSlider);
 }
 //TODO: no animation on slider
 function moveSliderLeft(){
+    if (petsSliderLeft.id === 'disabled-button') return;
+    petsSliderLeft.id = 'disabled-button';
+    petsSliderRight.id = 'disabled-button';
     if (prevAction === 1){
         //to prevSlider
         let temp = currSlider;
@@ -67,52 +72,72 @@ function moveSliderLeft(){
         prevSlider = temp;
     }
     else {
+        //randomthree except previous
         prevSlider = currSlider;
         currSlider = threeRandomCards();
-        //randomthree except previous
     }
-    let cardContainer = document.querySelector('.pets-card-container');
-    //cardContainer.style.transform = 'translateX(480px)';
-    //setTimeout(() => { 
-    for (let i = cardsAmount * cardsSwiped; i < cardsAmount + cardsAmount * cardsSwiped; i++){
-        cards[i].classList.add('hide');
-        cards[i + cardsAmount - (2 * cardsAmount * cardsSwiped)].classList.remove('hide');
+    let cardContainers = document.getElementsByClassName('pets-card-inner-container');
+    for (let i = 0; i < cardContainers.length; i++){
+        cardContainers[i].style.transition = `all ${sliderTime}s`;
+        cardContainers[i].style.transform = `translateX(${cardContainers[i].offsetWidth}px)`;
     }
-    //}, 1000);
-        //cardContainer.style.transform = 'translateX(0px)';
-    
-    cardsSwiped = !cardsSwiped;
-    
-    CardUpdate();
+    CardUpdate(0, 3);
+    CardUpdate(6, 9);
+    setTimeout(() => {
+        for (let i = 0; i < cardContainers.length; i++){
+        cardContainers[i].style.transition = 'none';
+        cardContainers[i].style.transform = 'translateX(0px)';
+        }
+        CardUpdate(3, 6);
+        petsSliderLeft.id = '';
+        petsSliderRight.id = '';
+    }, sliderTime * 1000);
     prevAction = -1;
+    console.log(currSlider);
+    console.log(prevSlider);
 }
 function moveSliderRight(){
+    if (petsSliderRight.id === 'disabled-button') return;
+    petsSliderRight.id = 'disabled-button';
+    petsSliderLeft.id = 'disabled-button';
     if (prevAction === -1){
         //to prevSlider
         let temp = currSlider;
         currSlider = prevSlider;
         prevSlider = temp;
-   }
-   else {
-       prevSlider = currSlider;
-       currSlider = threeRandomCards();
-       //randomthree except previous
-   }
-    for (let i = cardsAmount * cardsSwiped; i < cardsAmount + cardsAmount * cardsSwiped; i++){
-        cards[i].classList.add('hide');
-        cards[i + cardsAmount - (2 * cardsAmount * cardsSwiped)].classList.remove('hide');
     }
-    cardsSwiped = !cardsSwiped;
-    CardUpdate();
+    else {
+        //randomthree except previous
+        prevSlider = currSlider;
+        currSlider = threeRandomCards();
+    }
+    let cardContainers = document.getElementsByClassName('pets-card-inner-container');
+    for (let i = 0; i < cardContainers.length; i++){
+        cardContainers[i].style.transition = `all ${sliderTime}s`;
+        cardContainers[i].style.transform = `translateX(-${cardContainers[i].offsetWidth}px)`;
+    }
+    CardUpdate(0, 3);
+    CardUpdate(6, 9);
+    setTimeout(() => {
+        for (let i = 0; i < cardContainers.length; i++){
+        cardContainers[i].style.transition = 'none';
+        cardContainers[i].style.transform = 'translateX(0px)';
+        }
+        CardUpdate(3, 6);
+        petsSliderRight.id = '';
+        petsSliderLeft.id = '';
+    }, sliderTime * 1000);
     prevAction = 1;
+    console.log(currSlider);
+    console.log(prevSlider);
 }
-function CardUpdate(){
-    for (let i = cardsAmount * cardsSwiped; i < cardsAmount + cardsAmount * cardsSwiped; i++){
+function CardUpdate(start, end){
+    for (let i = start; i < end; i++){
         (async () => {
             let pets = await fetchJSONData();
-            cards[i].querySelector(".card-text").innerHTML = pets[currSlider[i - cardsAmount * cardsSwiped]].name;
-            cards[i].querySelector(".card-image").src = pets[currSlider[i - cardsAmount * cardsSwiped]].img;
-            cards[i].id = currSlider[i - cardsAmount * cardsSwiped];
+            cards[i].querySelector(".card-text").innerHTML = pets[currSlider[i - start]].name;
+            cards[i].querySelector(".card-image").src = pets[currSlider[i - start]].img;
+            cards[i].id = currSlider[i - start];
         })();
     }
 }
